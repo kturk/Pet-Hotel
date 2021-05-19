@@ -16,12 +16,21 @@ public class Mediator {
 
     private List<User> userList;
     private User loggedUser;
+    private PetCreator dogCreator;
+    private PetCreator catCreator;
+    private UserCreator adminCreator;
+    private UserCreator ownerCreator;
 
     public Mediator() {
         this.userList = new ArrayList<User>();
 
-        User admin1 = new Admin("admin", "123");
-        User owner1 = new Owner("owner", "123");
+        dogCreator = new DogCreator();
+        catCreator = new CatCreator();
+        ownerCreator = new OwnerCreator();
+        adminCreator = new AdminCreator();
+
+        User admin1 = adminCreator.createUser("admin", "123");
+        User owner1 = ownerCreator.createUser("owner", "123");
 
         this.userList.add(admin1);
         this.userList.add(owner1);
