@@ -9,7 +9,9 @@ public class OwnerMainScreen extends JFrame{
 
     private JLabel userLabel;
 
+    private JButton newPetButton;
     private JButton logoutButton;
+
 
     public OwnerMainScreen() {
         super("Owner Main Screen");
@@ -48,6 +50,7 @@ public class OwnerMainScreen extends JFrame{
 
         userLabel = new JLabel("User: ");
 
+        newPetButton = new JButton("Add New Pet");
         logoutButton = new JButton("Logout");
 
     }
@@ -57,13 +60,19 @@ public class OwnerMainScreen extends JFrame{
         userLabel.setBounds(75, 30, 250 ,25);
 
 
+//        1.setBounds(75,80,250,25);
+        newPetButton.setBounds(75,80,250,25);
+//        2.setBounds(75,120,250,25);
+//        3.setBounds(75,160,250,25);
+//        4.setBounds(75,200,250,25);
+//        5.setBounds(75,240,250,25);
         logoutButton.setBounds(75,280,250,25);
     }
 
     private void addComponents() {
         buttonsPanel.add(userLabel);
 
-
+        buttonsPanel.add(newPetButton);
         buttonsPanel.add(logoutButton);
     }
 
@@ -73,6 +82,10 @@ public class OwnerMainScreen extends JFrame{
 
     public void addLogoutButtonListener(ActionListener actionListener) {
         logoutButton.addActionListener(actionListener);
+    }
+
+    public void addNewPetButtonListener(ActionListener actionListener) {
+        newPetButton.addActionListener(actionListener);
     }
 
     public void closeScreen(){

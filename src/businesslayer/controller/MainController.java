@@ -27,7 +27,9 @@ public class MainController {
         ownerMainView.renderUsername(userModel.getUserName().toUpperCase());
 
         adminMainScreen.addLogoutButtonListener(new AdminLogoutListener());
+
         ownerMainView.addLogoutButtonListener(new OwnerLogoutListener());
+        ownerMainView.addNewPetButtonListener(new OwnerNewPetListener());
 
     }
 
@@ -63,12 +65,22 @@ public class MainController {
 //        }
 //    }
 
+    class OwnerNewPetListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            closeOwnerView();
+            mediator.navigateToNewPetScreen();
+        }
+    }
+
     class OwnerLogoutListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeOwnerView();
             mediator.navigateToLoginScreen();
         }
     }
+
+
+
 
     class AdminLogoutListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {

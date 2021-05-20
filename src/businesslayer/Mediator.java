@@ -2,11 +2,13 @@ package businesslayer;
 
 import businesslayer.controller.LoginController;
 import businesslayer.controller.MainController;
+import businesslayer.controller.NewPetController;
 import businesslayer.model.Admin;
 import businesslayer.model.Owner;
 import businesslayer.model.User;
 import presentationlayer.AdminMainScreen;
 import presentationlayer.LoginScreen;
+import presentationlayer.NewPetScreen;
 import presentationlayer.OwnerMainScreen;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class Mediator {
 
     private List<User> userList;
     private User loggedUser;
+    private User admin;
     private PetCreator dogCreator;
     private PetCreator catCreator;
     private UserCreator adminCreator;
@@ -31,7 +34,7 @@ public class Mediator {
 
         User admin1 = adminCreator.createUser("admin", "123");
         User owner1 = ownerCreator.createUser("owner", "123");
-
+        this.admin = admin1;
         this.userList.add(admin1);
         this.userList.add(owner1);
 
@@ -67,6 +70,12 @@ public class Mediator {
             mainController.showAdminView();
         else if(loggedUser instanceof Owner)
             mainController.showOwnerView();
+
+    }
+
+    public void navigateToNewPetScreen() {
+        NewPetController newPetController = new NewPetController(loggedUser, admin, new NewPetScreen(),this);
+        newPetController.showView();
 
     }
 
