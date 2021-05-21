@@ -11,6 +11,7 @@ public class OwnerMainScreen extends JFrame{
 
     private JButton newPetButton;
     private JButton seeOwnersPetsButton;
+    private JButton messagesButton;
     private JButton logoutButton;
 
 
@@ -51,8 +52,9 @@ public class OwnerMainScreen extends JFrame{
 
         userLabel = new JLabel("User: ");
 
-        newPetButton = new JButton("Add New Pet");
+        newPetButton = new JButton("Register New Pet");
         seeOwnersPetsButton = new JButton("See My Pets");
+        messagesButton = new JButton("Messages with Pet Hotel");
         logoutButton = new JButton("Logout");
 
     }
@@ -65,7 +67,7 @@ public class OwnerMainScreen extends JFrame{
 //        1.setBounds(75,80,250,25);
         newPetButton.setBounds(75,80,250,25);
         seeOwnersPetsButton.setBounds(75,120,250,25);
-//        3.setBounds(75,160,250,25);
+        messagesButton.setBounds(75,160,250,25);
 //        4.setBounds(75,200,250,25);
 //        5.setBounds(75,240,250,25);
         logoutButton.setBounds(75,280,250,25);
@@ -76,6 +78,7 @@ public class OwnerMainScreen extends JFrame{
 
         buttonsPanel.add(newPetButton);
         buttonsPanel.add(seeOwnersPetsButton);
+        buttonsPanel.add(messagesButton);
         buttonsPanel.add(logoutButton);
     }
 
@@ -87,8 +90,12 @@ public class OwnerMainScreen extends JFrame{
         newPetButton.addActionListener(actionListener);
     }
 
-    public void addSeeOwnersPetsButton(ActionListener actionListener) {
+    public void addSeeOwnersPetsButtonListener(ActionListener actionListener) {
         seeOwnersPetsButton.addActionListener(actionListener);
+    }
+
+    public void addMessagesButtonListener(ActionListener actionListener) {
+        messagesButton.addActionListener(actionListener);
     }
 
     public void addLogoutButtonListener(ActionListener actionListener) {
