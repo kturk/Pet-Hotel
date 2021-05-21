@@ -5,16 +5,14 @@ import businesslayer.controller.hoteladmincontrollers.MakeOperationsController;
 import businesslayer.controller.hoteladmincontrollers.SeeAllPetsController;
 import businesslayer.controller.ownercontrollers.ManageOperationsForPetController;
 import businesslayer.controller.ownercontrollers.NewPetController;
+import businesslayer.controller.ownercontrollers.OwnerMessagesController;
 import businesslayer.controller.ownercontrollers.SeeOwnerPetsController;
 import businesslayer.model.*;
 import presentationlayer.*;
 import presentationlayer.hoteladminscreens.HotelAdminMainScreen;
 import presentationlayer.hoteladminscreens.MakeOperationsScreen;
 import presentationlayer.hoteladminscreens.SeeAllPetsScreen;
-import presentationlayer.ownerscreens.ManageOperationsForPetScreen;
-import presentationlayer.ownerscreens.NewPetScreen;
-import presentationlayer.ownerscreens.OwnerMainScreen;
-import presentationlayer.ownerscreens.SeeOwnerPetsScreen;
+import presentationlayer.ownerscreens.*;
 
 public class Mediator {
 
@@ -34,7 +32,14 @@ public class Mediator {
 
         HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
         Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
+<<<<<<< HEAD
         owner1.addNewPet(new Cat("a",22));
+=======
+        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "Hi"));
+        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHello"));
+        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHow is my kedy"));
+        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "\nHe's awesome"));
+>>>>>>> e45918edd27bc52a9f504f6d3c05ac57775d3ac0
         this.admin = admin1;
         this.admin.addOwner(owner1);
 
@@ -84,8 +89,14 @@ public class Mediator {
         seeAllPetsController.showView();
     }
 
+<<<<<<< HEAD
     public void navigateToMakeOperationsScreen(Pet pet) {
         MakeOperationsController makeOperationsController = new MakeOperationsController(pet, new MakeOperationsScreen(), this);
         makeOperationsController.showView();
+=======
+    public void navigateToOwnerMessagesScreen() {
+        OwnerMessagesController ownerMessagesController = new OwnerMessagesController(loggedUser, new OwnerMessagesScreen(), this);
+        ownerMessagesController.showView();
+>>>>>>> e45918edd27bc52a9f504f6d3c05ac57775d3ac0
     }
 }

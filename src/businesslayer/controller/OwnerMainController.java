@@ -22,7 +22,8 @@ public class OwnerMainController {
         ownerMainView.renderUsername(ownerModel.getUserName().toUpperCase());
 
         ownerMainView.addLogoutButtonListener(new OwnerLogoutListener());
-        ownerMainView.addSeeOwnersPetsButton(new OwnerSeePetsListener());
+        ownerMainView.addSeeOwnersPetsButtonListener(new OwnerSeePetsListener());
+        ownerMainView.addMessagesButtonListener(new OwnerMessagesListener());
         ownerMainView.addNewPetButtonListener(new OwnerNewPetListener());
 
     }
@@ -62,6 +63,13 @@ public class OwnerMainController {
         public void actionPerformed(ActionEvent e) {
             closeView();
             mediator.navigateToSeeOwnerPetsScreen();
+        }
+    }
+
+    class OwnerMessagesListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            closeView();
+            mediator.navigateToOwnerMessagesScreen();
         }
     }
 
