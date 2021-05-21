@@ -59,6 +59,30 @@ public class Pet {
         System.out.println("cutted");
     }
 
+    public void bath(){
+        todoOperations.remove(OperationType.BATH);
+        completedOperations.add(OperationType.BATH);
+        System.out.println("Bath");
+    }
+
+    public void shave(){
+        todoOperations.remove(OperationType.SHAVE);
+        completedOperations.add(OperationType.SHAVE);
+        System.out.println("Shave");
+    }
+
+    public void dentalCare(){
+        todoOperations.remove(OperationType.DENTAL_CARE);
+        completedOperations.add(OperationType.DENTAL_CARE);
+        System.out.println("Dental Care");
+    }
+
+    public void vaccination(){
+        todoOperations.remove(OperationType.VACCINATION);
+        completedOperations.add(OperationType.VACCINATION);
+        System.out.println("Vaccination");
+    }
+
     @Override
     public String toString() {
         return "Name = " + name + " -- " + "Age = " + age;

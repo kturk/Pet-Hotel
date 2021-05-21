@@ -43,7 +43,7 @@ public class SeeAllPetsController {
         public void actionPerformed(ActionEvent e) {
             Pet selectedPet = (Pet) seeAllPetsView.getPetList().getSelectedValue();
             closeView();
-            mediator.navigateToManageOperationsForPetScreen(selectedPet);
+            mediator.navigateToMakeOperationsScreen(selectedPet);
         }
     }
 

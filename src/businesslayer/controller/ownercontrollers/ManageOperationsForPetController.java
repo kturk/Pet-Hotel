@@ -7,7 +7,9 @@ import presentationlayer.ownerscreens.ManageOperationsForPetScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ManageOperationsForPetController {
 
@@ -27,12 +29,34 @@ public class ManageOperationsForPetController {
         this.manageOperationsForPetView.addBackButtonListener(new BackButtonListener());
 
         this.manageOperationsForPetView.setPetName(petModel.getName());
-        this.manageOperationsForPetView.setOperationTypeDropDownList(Arrays.asList(OperationType.values()));
 
+        updateOperationTypeList();
         setTodoOperationsList();
         setDoneOperationsList();
 
-        //manageOperationsForPetView.setList(petModel.getPetList().toArray());
+    }
+
+    // Deleting selected operation types from operations dropdown menu
+    private void updateOperationTypeList(){
+        manageOperationsForPetView.deleteAllOperationTypes();
+        List<OperationType> modifiedOperationTypes = new ArrayList<OperationType>();
+        modifiedOperationTypes.addAll(Arrays.asList(OperationType.values()));
+
+        System.out.println("mo" + modifiedOperationTypes);
+
+        List<OperationType> selectedOperationTypes = new ArrayList<OperationType>();
+
+
+        selectedOperationTypes.addAll(petModel.getTodoOperations());
+        selectedOperationTypes.addAll(petModel.getCompletedOperations());
+
+
+        System.out.println("se" + selectedOperationTypes);
+
+        modifiedOperationTypes.removeAll(selectedOperationTypes);
+        System.out.println("mo2" + modifiedOperationTypes);
+
+        this.manageOperationsForPetView.setOperationTypeDropDownList(modifiedOperationTypes);
 
     }
 
@@ -60,6 +84,7 @@ public class ManageOperationsForPetController {
             System.out.println(selectedOperation.getLabel());
             petModel.addTodoOperation(selectedOperation);
             setTodoOperationsList();
+            updateOperationTypeList();
         }
     }
 
@@ -69,6 +94,7 @@ public class ManageOperationsForPetController {
             System.out.println(selectedOperation);
             petModel.removeTodoOperation(selectedOperation);
             setTodoOperationsList();
+            updateOperationTypeList();
         }
     }
 

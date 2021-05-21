@@ -152,6 +152,10 @@ public class ManageOperationsForPetScreen extends JFrame{
         }
     }
 
+    public void deleteAllOperationTypes() {
+        operationTypeDropDown.removeAllItems();
+    }
+
     public void addAddOperationButtonListener(ActionListener actionListener) {
         addOperationButton.addActionListener(actionListener);
     }
