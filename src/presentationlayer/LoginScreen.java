@@ -15,6 +15,8 @@ public class LoginScreen extends JFrame{
 
     private JButton loginButton;
 
+    private JButton backButton;
+
     private JPanel loginPanel;
 
     public LoginScreen() {
@@ -55,6 +57,7 @@ public class LoginScreen extends JFrame{
         passwordLabel = new JLabel("Password: ");
         passwordField = new JPasswordField(10);
         loginButton = new JButton("Login");
+        backButton = new JButton("Back");
     }
 
     private void locateComponents() {
@@ -63,6 +66,8 @@ public class LoginScreen extends JFrame{
         passwordLabel.setBounds(20,60,100,25);
         passwordField.setBounds(120, 60, 150, 25);
         loginButton.setBounds(160, 100, 110, 25);
+        backButton.setBounds(15, 180, 110, 25);
+
     }
 
     private void addComponents() {
@@ -71,6 +76,7 @@ public class LoginScreen extends JFrame{
         loginPanel.add(passwordLabel);
         loginPanel.add(passwordField);
         loginPanel.add(loginButton);
+        loginPanel.add(backButton);
     }
 
     public void addButtonListener(ActionListener actionListener) {
@@ -83,6 +89,10 @@ public class LoginScreen extends JFrame{
         credentials.put("password", new String(passwordField.getPassword()));
 
         return(credentials);
+    }
+
+    public void addBackButtonListener(ActionListener actionListener) {
+        backButton.addActionListener(actionListener);
     }
 
     public void showError(String errorMessage) {

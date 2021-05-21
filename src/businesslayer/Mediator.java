@@ -17,12 +17,8 @@ import presentationlayer.ownerscreens.NewPetScreen;
 import presentationlayer.ownerscreens.OwnerMainScreen;
 import presentationlayer.ownerscreens.SeeOwnerPetsScreen;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Mediator {
 
-//    private List<User> userList;
     private Owner loggedUser;
     private HotelAdmin admin;
     private PetCreator dogCreator;
@@ -31,57 +27,44 @@ public class Mediator {
     private UserCreator ownerCreator;
 
     public Mediator() {
-//        this.userList = new ArrayList<User>();
 
         dogCreator = new DogCreator();
         catCreator = new CatCreator();
         ownerCreator = new OwnerCreator();
         adminCreator = new AdminCreator();
 
-        User admin1 = adminCreator.createUser("admin", "123");
-        User owner1 = ownerCreator.createUser("owner", "123");
-//        this.admin = admin1;
-//        this.userList.add(admin1);
-//        this.userList.add(owner1);
+        HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
+        Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
+        this.admin = admin1;
+        this.admin.addOwner(owner1);
+
     }
 
     public void start(){
-        navigateToLoginScreen();
-    }
-
-    public void navigateToLoginScreen() {
-//        List<User> allUsers =  ((HotelAdmin) admin).getOwnerList();
-        // TODO new login screen (because we cannot have admin and users in the same list)
-//        LoginController loginController = new LoginController(userList, new LoginScreen(), this);
-//        loginController.showView();
+        navigateToLoginChoiceScreen();
     }
 
     public void setLoggedUser(Owner loggedUser){
         this.loggedUser = loggedUser;
     }
 
-    public String getUserType(){
-        if(loggedUser instanceof HotelAdmin)
-            return "Admin";
-        else if(loggedUser instanceof Owner)
-            return "Owner";
-        else
-            return null;
+    public void navigateToLoginChoiceScreen() {
+        LoginController loginController = new LoginController(admin, new LoginScreen(), new LoginChoiceScreen(),this);
+        loginController.showLoginChoiceView();
     }
 
-    public void navigateToMainScreen() {
-        System.out.println(loggedUser.getUserName());
-        MainController mainController = new MainController(loggedUser, new HotelAdminMainScreen(), new OwnerMainScreen(),this);
+    public void navigateToOwnerMainScreen() {
+        OwnerMainController ownerMainController = new OwnerMainController(loggedUser, new OwnerMainScreen(), this);
+        ownerMainController.showView();
+    }
 
-        if(loggedUser instanceof HotelAdmin)
-            mainController.showAdminView();
-        else if(loggedUser instanceof Owner)
-            mainController.showOwnerView();
-
+    public void navigateToHotelAdminMainScreen() {
+        HotelAdminMainController hotelAdminMainController = new HotelAdminMainController(admin, new HotelAdminMainScreen(), this);
+        hotelAdminMainController.showView();
     }
 
     public void navigateToNewPetScreen() {
-        NewPetController newPetController = new NewPetController(loggedUser, admin, new NewPetScreen(),this);
+        NewPetController newPetController = new NewPetController(loggedUser, new NewPetScreen(),this);
         newPetController.showView();
 
     }

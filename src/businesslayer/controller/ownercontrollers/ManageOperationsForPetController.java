@@ -75,7 +75,7 @@ public class ManageOperationsForPetController {
     class BackButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
-            mediator.navigateToMainScreen();
+            mediator.navigateToOwnerMainScreen();
         }
     }
 

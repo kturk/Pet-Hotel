@@ -13,15 +13,13 @@ import java.awt.event.ActionListener;
 public class NewPetController {
 
     private final User ownerModel;
-    private final User adminModel;
 
     private final NewPetScreen newPetView;
 
     private final Mediator mediator;
 
-    public NewPetController(User ownerModel, User adminModel, NewPetScreen newPetView, Mediator mediator) {
+    public NewPetController(User ownerModel, NewPetScreen newPetView, Mediator mediator) {
         this.ownerModel = ownerModel;
-        this.adminModel = adminModel;
         this.newPetView = newPetView;
         this.mediator = mediator;
 
@@ -65,7 +63,7 @@ public class NewPetController {
     class BackButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
-            mediator.navigateToMainScreen();
+            mediator.navigateToOwnerMainScreen();
         }
     }
 

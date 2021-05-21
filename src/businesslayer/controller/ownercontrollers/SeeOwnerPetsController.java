@@ -1,6 +1,7 @@
 package businesslayer.controller.ownercontrollers;
 
 import businesslayer.Mediator;
+import businesslayer.model.Owner;
 import businesslayer.model.Pet;
 import businesslayer.model.User;
 import presentationlayer.ownerscreens.SeeOwnerPetsScreen;
@@ -10,12 +11,12 @@ import java.awt.event.ActionListener;
 
 public class SeeOwnerPetsController {
 
-    private final User ownerModel;
+    private final Owner ownerModel;
     private final SeeOwnerPetsScreen seeOwnerPetsView;
 
     private final Mediator mediator;
 
-    public SeeOwnerPetsController(User ownerModel, SeeOwnerPetsScreen seeOwnerPetsView, Mediator mediator) {
+    public SeeOwnerPetsController(Owner ownerModel, SeeOwnerPetsScreen seeOwnerPetsView, Mediator mediator) {
         this.ownerModel = ownerModel;
         this.seeOwnerPetsView = seeOwnerPetsView;
         this.mediator = mediator;
@@ -48,7 +49,7 @@ public class SeeOwnerPetsController {
     class BackButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
-            mediator.navigateToMainScreen();
+            mediator.navigateToOwnerMainScreen();
         }
     }
 
