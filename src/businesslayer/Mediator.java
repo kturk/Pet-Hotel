@@ -1,6 +1,8 @@
 package businesslayer;
 
 import businesslayer.controller.*;
+import businesslayer.controller.hoteladmincontrollers.AdminMessagesController;
+import businesslayer.controller.hoteladmincontrollers.ChatWithOwnerController;
 import businesslayer.controller.hoteladmincontrollers.MakeOperationsController;
 import businesslayer.controller.hoteladmincontrollers.SeeAllPetsController;
 import businesslayer.controller.ownercontrollers.ManageOperationsForPetController;
@@ -9,9 +11,7 @@ import businesslayer.controller.ownercontrollers.OwnerMessagesController;
 import businesslayer.controller.ownercontrollers.SeeOwnerPetsController;
 import businesslayer.model.*;
 import presentationlayer.*;
-import presentationlayer.hoteladminscreens.HotelAdminMainScreen;
-import presentationlayer.hoteladminscreens.MakeOperationsScreen;
-import presentationlayer.hoteladminscreens.SeeAllPetsScreen;
+import presentationlayer.hoteladminscreens.*;
 import presentationlayer.ownerscreens.*;
 
 public class Mediator {
@@ -96,5 +96,15 @@ public class Mediator {
     public void navigateToOwnerMessagesScreen() {
         OwnerMessagesController ownerMessagesController = new OwnerMessagesController(loggedUser, new OwnerMessagesScreen(), this);
         ownerMessagesController.showView();
+    }
+
+    public void navigateToAdminMessagesScreen() {
+        AdminMessagesController adminMessagesController = new AdminMessagesController(admin, new AdminMessagesScreen(), this);
+        adminMessagesController.showView();
+    }
+
+    public void navigateToChatWithOwnerScreen(Owner owner) {
+        ChatWithOwnerController chatWithOwnerController = new ChatWithOwnerController(admin, owner, new ChatWithOwnerScreen(), this);
+        chatWithOwnerController.showView();
     }
 }

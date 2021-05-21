@@ -25,7 +25,6 @@ public class OwnerMainController {
         ownerMainView.addSeeOwnersPetsButtonListener(new OwnerSeePetsListener());
         ownerMainView.addMessagesButtonListener(new OwnerMessagesListener());
         ownerMainView.addNewPetButtonListener(new OwnerNewPetListener());
-
     }
 
     public void showView() {
