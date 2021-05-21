@@ -4,18 +4,13 @@ import businesslayer.controller.*;
 import businesslayer.controller.hoteladmincontrollers.SeeAllPetsController;
 import businesslayer.controller.ownercontrollers.ManageOperationsForPetController;
 import businesslayer.controller.ownercontrollers.NewPetController;
+import businesslayer.controller.ownercontrollers.OwnerMessagesController;
 import businesslayer.controller.ownercontrollers.SeeOwnerPetsController;
-import businesslayer.model.HotelAdmin;
-import businesslayer.model.Owner;
-import businesslayer.model.Pet;
-import businesslayer.model.User;
+import businesslayer.model.*;
 import presentationlayer.*;
 import presentationlayer.hoteladminscreens.HotelAdminMainScreen;
 import presentationlayer.hoteladminscreens.SeeAllPetsScreen;
-import presentationlayer.ownerscreens.ManageOperationsForPetScreen;
-import presentationlayer.ownerscreens.NewPetScreen;
-import presentationlayer.ownerscreens.OwnerMainScreen;
-import presentationlayer.ownerscreens.SeeOwnerPetsScreen;
+import presentationlayer.ownerscreens.*;
 
 public class Mediator {
 
@@ -35,6 +30,10 @@ public class Mediator {
 
         HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
         Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
+        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "Hi"));
+        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHello"));
+        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHow is my kedy"));
+        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "\nHe's awesome"));
         this.admin = admin1;
         this.admin.addOwner(owner1);
 
@@ -82,5 +81,10 @@ public class Mediator {
     public void navigateToSeeAllPetsScreen() {
         SeeAllPetsController seeAllPetsController = new SeeAllPetsController(admin, new SeeAllPetsScreen(), this);
         seeAllPetsController.showView();
+    }
+
+    public void navigateToOwnerMessagesScreen() {
+        OwnerMessagesController ownerMessagesController = new OwnerMessagesController(loggedUser, new OwnerMessagesScreen(), this);
+        ownerMessagesController.showView();
     }
 }
