@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class NewPetScreen extends JFrame{
+public class SeeStatusOfPetsScreen extends JFrame{
 
     private JPanel panel;
 
@@ -28,7 +28,7 @@ public class NewPetScreen extends JFrame{
     JScrollPane scrollPane;
 
 
-    public NewPetScreen() {
+    public SeeStatusOfPetsScreen() {
         super("Add New Pet");
         screenInitializer();
 

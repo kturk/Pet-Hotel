@@ -1,51 +1,37 @@
 package businesslayer.controller;
 
 import businesslayer.Mediator;
-import businesslayer.model.Admin;
-import businesslayer.model.User;
-import presentationlayer.AdminMainScreen;
-import presentationlayer.OwnerMainScreen;
+import businesslayer.model.Owner;
+import presentationlayer.ownerscreens.OwnerMainScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainController {
+public class OwnerMainController {
 
-    private final User userModel;
-    private final AdminMainScreen adminMainView;
+    private final Owner ownerModel;
     private final OwnerMainScreen ownerMainView;
 
     private final Mediator mediator;
 
-    public MainController(User userModel, AdminMainScreen adminMainScreen, OwnerMainScreen ownerMainView, Mediator mediator) {
-        this.userModel = userModel;
-        this.adminMainView = adminMainScreen;
+    public OwnerMainController(Owner ownerModel, OwnerMainScreen ownerMainView, Mediator mediator) {
+        this.ownerModel = ownerModel;
         this.ownerMainView = ownerMainView;
         this.mediator = mediator;
 
-        adminMainView.renderUsername(userModel.getUserName().toUpperCase());
-        ownerMainView.renderUsername(userModel.getUserName().toUpperCase());
-
-        adminMainScreen.addLogoutButtonListener(new AdminLogoutListener());
+        ownerMainView.renderUsername(ownerModel.getUserName().toUpperCase());
 
         ownerMainView.addLogoutButtonListener(new OwnerLogoutListener());
+        ownerMainView.addSeeOwnersPetsButton(new OwnerSeePetsListener());
         ownerMainView.addNewPetButtonListener(new OwnerNewPetListener());
 
     }
 
-    public void showAdminView() {
-        adminMainView.showScreen();
-    }
-
-    public void closeAdminView() {
-        adminMainView.closeScreen();
-    }
-
-    public void showOwnerView() {
+    public void showView() {
         ownerMainView.showScreen();
     }
 
-    public void closeOwnerView() {
+    public void closeView() {
         ownerMainView.closeScreen();
     }
 
@@ -67,25 +53,23 @@ public class MainController {
 
     class OwnerNewPetListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            closeOwnerView();
+            closeView();
             mediator.navigateToNewPetScreen();
+        }
+    }
+
+    class OwnerSeePetsListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            closeView();
+            mediator.navigateToSeeOwnerPetsScreen();
         }
     }
 
     class OwnerLogoutListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            closeOwnerView();
-            mediator.navigateToLoginScreen();
+            closeView();
+            mediator.navigateToLoginChoiceScreen();
         }
     }
 
-
-
-
-    class AdminLogoutListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            closeAdminView();
-            mediator.navigateToLoginScreen();
-        }
-    }
 }

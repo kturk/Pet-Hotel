@@ -3,7 +3,7 @@ package businesslayer.model;
 public enum OperationType {
     NAILS("Nails",30,20,0.5,0.5),
     BATH("Bath",30,20,0.5,0.5),
-    VACCINATIONS("Vaccinations",30,20,0.5,0.5),
+    VACCINATION("Vaccination",30,20,0.5,0.5),
     DENTAL_CARE("Dental Care",30,20,0.5,0.5),
     SHAVE("Shave",30,20,0.5,0.5);
 
@@ -13,7 +13,7 @@ public enum OperationType {
     private final double timeForDog;
     private final double timeForCat;
 
-    OperationType(String label, int priceForDog, int priceForCat, double timeForDog, double timeForCat) {
+    private OperationType(String label, int priceForDog, int priceForCat, double timeForDog, double timeForCat) {
         this.label = label;
         this.priceForDog = priceForDog;
         this.priceForCat = priceForCat;

@@ -1,6 +1,6 @@
 package businesslayer;
 
-import businesslayer.model.Admin;
+import businesslayer.model.HotelAdmin;
 import businesslayer.model.User;
 
 public class AdminCreator implements UserCreator{
@@ -8,6 +8,6 @@ public class AdminCreator implements UserCreator{
 
     @Override
     public User createUser(String userName, String password) {
-        return new Admin(userName, password);
+        return new HotelAdmin(userName, password);
     }
 }

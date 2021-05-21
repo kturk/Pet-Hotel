@@ -1,18 +1,21 @@
-package presentationlayer;
+package presentationlayer.ownerscreens;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class AdminMainScreen extends JFrame{
+public class OwnerMainScreen extends JFrame{
 
     private JPanel buttonsPanel;
 
     private JLabel userLabel;
 
+    private JButton newPetButton;
+    private JButton seeOwnersPetsButton;
     private JButton logoutButton;
 
-    public AdminMainScreen() {
-        super("Admin Main Screen");
+
+    public OwnerMainScreen() {
+        super("Owner Main Screen");
         screenInitializer();
 
     }
@@ -48,6 +51,8 @@ public class AdminMainScreen extends JFrame{
 
         userLabel = new JLabel("User: ");
 
+        newPetButton = new JButton("Add New Pet");
+        seeOwnersPetsButton = new JButton("See My Pets");
         logoutButton = new JButton("Logout");
 
     }
@@ -56,12 +61,21 @@ public class AdminMainScreen extends JFrame{
 
         userLabel.setBounds(75, 30, 250 ,25);
 
+
+//        1.setBounds(75,80,250,25);
+        newPetButton.setBounds(75,80,250,25);
+        seeOwnersPetsButton.setBounds(75,120,250,25);
+//        3.setBounds(75,160,250,25);
+//        4.setBounds(75,200,250,25);
+//        5.setBounds(75,240,250,25);
         logoutButton.setBounds(75,280,250,25);
     }
 
     private void addComponents() {
         buttonsPanel.add(userLabel);
 
+        buttonsPanel.add(newPetButton);
+        buttonsPanel.add(seeOwnersPetsButton);
         buttonsPanel.add(logoutButton);
     }
 
@@ -69,6 +83,13 @@ public class AdminMainScreen extends JFrame{
         userLabel.setText("User: " + username);
     }
 
+    public void addNewPetButtonListener(ActionListener actionListener) {
+        newPetButton.addActionListener(actionListener);
+    }
+
+    public void addSeeOwnersPetsButton(ActionListener actionListener) {
+        seeOwnersPetsButton.addActionListener(actionListener);
+    }
 
     public void addLogoutButtonListener(ActionListener actionListener) {
         logoutButton.addActionListener(actionListener);
