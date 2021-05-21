@@ -1,10 +1,9 @@
 package businesslayer.controller;
 
 import businesslayer.Mediator;
-import businesslayer.model.Admin;
 import businesslayer.model.User;
-import presentationlayer.AdminMainScreen;
-import presentationlayer.OwnerMainScreen;
+import presentationlayer.hoteladminscreens.HotelAdminMainScreen;
+import presentationlayer.ownerscreens.OwnerMainScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,23 +11,25 @@ import java.awt.event.ActionListener;
 public class MainController {
 
     private final User userModel;
-    private final AdminMainScreen adminMainView;
+    private final HotelAdminMainScreen adminMainView;
     private final OwnerMainScreen ownerMainView;
 
     private final Mediator mediator;
 
-    public MainController(User userModel, AdminMainScreen adminMainScreen, OwnerMainScreen ownerMainView, Mediator mediator) {
+    public MainController(User userModel, HotelAdminMainScreen hotelAdminMainScreen, OwnerMainScreen ownerMainView, Mediator mediator) {
         this.userModel = userModel;
-        this.adminMainView = adminMainScreen;
+        this.adminMainView = hotelAdminMainScreen;
         this.ownerMainView = ownerMainView;
         this.mediator = mediator;
 
         adminMainView.renderUsername(userModel.getUserName().toUpperCase());
         ownerMainView.renderUsername(userModel.getUserName().toUpperCase());
 
-        adminMainScreen.addLogoutButtonListener(new AdminLogoutListener());
+        hotelAdminMainScreen.addSeeAllPetsButtonListener(new AdminSeeAllPetsListener());
+        hotelAdminMainScreen.addLogoutButtonListener(new AdminLogoutListener());
 
         ownerMainView.addLogoutButtonListener(new OwnerLogoutListener());
+        ownerMainView.addSeeOwnersPetsButton(new OwnerSeePetsListener());
         ownerMainView.addNewPetButtonListener(new OwnerNewPetListener());
 
     }
@@ -72,6 +73,13 @@ public class MainController {
         }
     }
 
+    class OwnerSeePetsListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            closeOwnerView();
+            mediator.navigateToSeeOwnerPetsScreen();
+        }
+    }
+
     class OwnerLogoutListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeOwnerView();
@@ -79,8 +87,12 @@ public class MainController {
         }
     }
 
-
-
+    class AdminSeeAllPetsListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            closeAdminView();
+            mediator.navigateToSeeAllPetsScreen();
+        }
+    }
 
     class AdminLogoutListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {

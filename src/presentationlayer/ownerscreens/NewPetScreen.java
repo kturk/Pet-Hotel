@@ -1,11 +1,11 @@
-package presentationlayer;
+package presentationlayer.ownerscreens;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class SeeStatusOfPets extends JFrame{
+public class NewPetScreen extends JFrame{
 
     private JPanel panel;
 
@@ -28,7 +28,7 @@ public class SeeStatusOfPets extends JFrame{
     JScrollPane scrollPane;
 
 
-    public SeeStatusOfPets() {
+    public NewPetScreen() {
         super("Add New Pet");
         screenInitializer();
 

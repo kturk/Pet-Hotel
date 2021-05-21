@@ -1,20 +1,19 @@
-package presentationlayer;
+package presentationlayer.hoteladminscreens;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class OwnerMainScreen extends JFrame{
+public class HotelAdminMainScreen extends JFrame{
 
     private JPanel buttonsPanel;
 
     private JLabel userLabel;
 
-    private JButton newPetButton;
+    private JButton seeAllPetsButton;
     private JButton logoutButton;
 
-
-    public OwnerMainScreen() {
-        super("Owner Main Screen");
+    public HotelAdminMainScreen() {
+        super("Admin Main Screen");
         screenInitializer();
 
     }
@@ -50,7 +49,7 @@ public class OwnerMainScreen extends JFrame{
 
         userLabel = new JLabel("User: ");
 
-        newPetButton = new JButton("Add New Pet");
+        seeAllPetsButton = new JButton("All Pets");
         logoutButton = new JButton("Logout");
 
     }
@@ -59,20 +58,14 @@ public class OwnerMainScreen extends JFrame{
 
         userLabel.setBounds(75, 30, 250 ,25);
 
-
-//        1.setBounds(75,80,250,25);
-        newPetButton.setBounds(75,80,250,25);
-//        2.setBounds(75,120,250,25);
-//        3.setBounds(75,160,250,25);
-//        4.setBounds(75,200,250,25);
-//        5.setBounds(75,240,250,25);
+        seeAllPetsButton.setBounds(75,80,250,25);
         logoutButton.setBounds(75,280,250,25);
     }
 
     private void addComponents() {
         buttonsPanel.add(userLabel);
 
-        buttonsPanel.add(newPetButton);
+        buttonsPanel.add(seeAllPetsButton);
         buttonsPanel.add(logoutButton);
     }
 
@@ -80,12 +73,13 @@ public class OwnerMainScreen extends JFrame{
         userLabel.setText("User: " + username);
     }
 
+
     public void addLogoutButtonListener(ActionListener actionListener) {
         logoutButton.addActionListener(actionListener);
     }
 
-    public void addNewPetButtonListener(ActionListener actionListener) {
-        newPetButton.addActionListener(actionListener);
+    public void addSeeAllPetsButtonListener(ActionListener actionListener) {
+        seeAllPetsButton.addActionListener(actionListener);
     }
 
     public void closeScreen(){

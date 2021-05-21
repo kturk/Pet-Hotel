@@ -1,6 +1,7 @@
 package businesslayer.controller;
 
 import businesslayer.Mediator;
+import businesslayer.model.Owner;
 import businesslayer.model.User;
 import presentationlayer.LoginScreen;
 
@@ -11,7 +12,7 @@ import java.util.Map;
 
 public class LoginController {
 
-    private final List<User> userModels;
+    private final List<Owner> userModels;
     private final LoginScreen loginView;
     private final Mediator mediator;
 
@@ -31,8 +32,8 @@ public class LoginController {
         loginView.closeScreen();
     }
 
-    private User checkCredentials(String username, String password) {
-        for(User userModel : userModels){
+    private Owner checkCredentials(String username, String password) {
+        for(Owner userModel : userModels){
             if(userModel.getUserName().equals(username) && userModel.getPassword().equals(password)){
                 return userModel;
             }
@@ -44,7 +45,7 @@ public class LoginController {
     class LoginListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Map<String, String> credentials = loginView.getCredentials();
-            User loggedInUser = checkCredentials(credentials.get("username"), credentials.get("password"));
+            Owner loggedInUser = checkCredentials(credentials.get("username"), credentials.get("password"));
 
             if(loggedInUser != null){
                 closeView();

@@ -13,7 +13,7 @@ public enum OperationType {
     private final double timeForDog;
     private final double timeForCat;
 
-    OperationType(String label, int priceForDog, int priceForCat, double timeForDog, double timeForCat) {
+    private OperationType(String label, int priceForDog, int priceForCat, double timeForDog, double timeForCat) {
         this.label = label;
         this.priceForDog = priceForDog;
         this.priceForCat = priceForCat;
