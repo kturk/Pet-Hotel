@@ -39,8 +39,12 @@ public class SeeAllPetsController {
     class SelectButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Pet selectedPet = (Pet) seeAllPetsView.getPetList().getSelectedValue();
-            closeView();
-            mediator.navigateToMakeOperationsScreen(selectedPet);
+            if(selectedPet != null){
+                closeView();
+                mediator.navigateToMakeOperationsScreen(selectedPet);
+            }
+            else
+                seeAllPetsView.showError("Please select a pet from the list!");
         }
     }
 

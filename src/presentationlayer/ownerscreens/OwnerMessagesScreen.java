@@ -78,6 +78,10 @@ public class OwnerMessagesScreen extends JFrame{
         panel.add(backButton);
     }
 
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
     public JTextField getNewMessageField() {
         return newMessageField;
     }

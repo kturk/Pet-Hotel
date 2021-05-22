@@ -43,7 +43,7 @@ public class AdminMessagesController {
                 mediator.navigateToChatWithOwnerScreen(selectedOwner);
             }
             else
-                adminMessagesView.showError("Please select a pet owner from the list");
+                adminMessagesView.showError("Please select a pet owner from the list!");
         }
     }
 

@@ -39,16 +39,24 @@ public class SeeOwnerPetsController {
     class SelectButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Pet selectedPet = (Pet) seeOwnerPetsView.getPetList().getSelectedValue();
-            closeView();
-            mediator.navigateToManageOperationsForPetScreen(selectedPet);
+            if(selectedPet != null){
+                closeView();
+                mediator.navigateToManageOperationsForPetScreen(selectedPet);
+            }
+            else
+                seeOwnerPetsView.showError("Please select a pet from the pet list!");
         }
     }
 
     class CheckoutButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Pet selectedPet = (Pet) seeOwnerPetsView.getPetList().getSelectedValue();
-            closeView();
-            mediator.navigateToPetInvoiceScreen(selectedPet);
+            if(selectedPet != null){
+                closeView();
+                mediator.navigateToPetInvoiceScreen(selectedPet);
+            }
+            else
+                seeOwnerPetsView.showError("Please select a pet from the pet list!");
         }
     }
 

@@ -14,7 +14,10 @@ public class MakeOperationsScreen extends JFrame {
     private JList todoOperations;
     private JList completedOperations;
     private JButton completeButton;
-//    private JButton unfollowButton;
+    private JButton undoButton;
+
+    private JScrollPane todoOperationsScrollPane;
+    private JScrollPane completedOperationsScrollPane;
 
     private JButton backButton;
 
@@ -57,8 +60,11 @@ public class MakeOperationsScreen extends JFrame {
         todoOperations = new JList();
         completedOperations = new JList();
         completeButton = new JButton(">>>");
-//        unfollowButton = new JButton("Unfollow");
+        undoButton = new JButton("<<<");
         backButton = new JButton("Back");
+
+        todoOperationsScrollPane = new JScrollPane();
+        completedOperationsScrollPane = new JScrollPane();
     }
 
     private void locateComponents() {
@@ -68,22 +74,24 @@ public class MakeOperationsScreen extends JFrame {
         completedOperationsLabel.setBounds(300,10,180,25);
         completedOperationsLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        todoOperations.setBounds(20,40, 180,250);
-        completedOperations.setBounds(300,40,180,250);
+        todoOperationsScrollPane.setBounds(20,40, 180,250);
+        completedOperationsScrollPane.setBounds(300,40,180,250);
 
-//        unfollowButton.setBounds(240,300,110, 25);
-        completeButton.setBounds(210,130,80,25);
+        completeButton.setBounds(210,125,80,25);
+        undoButton.setBounds(210,170,80,25);
 
         backButton.setBounds(20,360,110,25);
     }
 
     private void addComponents() {
+        todoOperationsScrollPane.setViewportView(todoOperations);
+        completedOperationsScrollPane.setViewportView(completedOperations);
         panel.add(todoOperationsLabel);
         panel.add(completedOperationsLabel);
-        panel.add(todoOperations);
-        panel.add(completedOperations);
+        panel.add(todoOperationsScrollPane);
+        panel.add(completedOperationsScrollPane);
         panel.add(completeButton);
-//        panel.add(unfollowButton);
+        panel.add(undoButton);
         panel.add(backButton);
     }
 
@@ -107,9 +115,9 @@ public class MakeOperationsScreen extends JFrame {
         completeButton.addActionListener(actionListener);
     }
 
-//    public void addUnfollowButtonListener(ActionListener actionListener) {
-//        unfollowButton.addActionListener(actionListener);
-//    }
+    public void addUndoButtonListener(ActionListener actionListener) {
+        undoButton.addActionListener(actionListener);
+    }
 
     public void addBackButtonListener(ActionListener actionListener) {
         backButton.addActionListener(actionListener);

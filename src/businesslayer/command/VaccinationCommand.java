@@ -14,4 +14,9 @@ public class VaccinationCommand implements Command{
     public void execute() {
         pet.vaccination();
     }
+
+    @Override
+    public void undo() {
+        pet.undoVaccination();
+    }
 }

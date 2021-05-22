@@ -14,4 +14,9 @@ public class BathCommand implements Command{
     public void execute() {
         pet.bath();
     }
+
+    @Override
+    public void undo() {
+        pet.undoBath();
+    }
 }

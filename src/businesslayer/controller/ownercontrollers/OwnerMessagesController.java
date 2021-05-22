@@ -84,10 +84,15 @@ public class OwnerMessagesController {
     class SendButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String newMessage = "\n" + ownerMessagesView.getNewMessageField().getText();
-            ownerModel.addNewMessage(new ChatMessage("Owner", newMessage));
-            ownerMessagesView.setChatScreenDocument(getChatMessagesAsDocument());
-            ownerMessagesView.setNewMessageField("");
-            mediator.writeXML();
+            if(newMessage.length() > 1){
+                ownerModel.addNewMessage(new ChatMessage("Owner", newMessage));
+                ownerMessagesView.setChatScreenDocument(getChatMessagesAsDocument());
+                ownerMessagesView.setNewMessageField("");
+                mediator.writeXML();
+            }
+            else
+                ownerMessagesView.showError("Please enter a message!");
+
         }
     }
 

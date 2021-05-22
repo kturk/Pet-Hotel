@@ -175,6 +175,10 @@ public class ManageOperationsForPetScreen extends JFrame{
         }
     }
 
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
     public void deleteAllOperationTypes() {
         operationTypeDropDown.removeAllItems();
     }

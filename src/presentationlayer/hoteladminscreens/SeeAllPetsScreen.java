@@ -81,6 +81,10 @@ public class SeeAllPetsScreen extends JFrame{
         selectButton.addActionListener(actionListener);
     }
 
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
     public JList getPetList() {
         return petList;
     }

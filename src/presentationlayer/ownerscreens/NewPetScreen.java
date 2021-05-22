@@ -98,7 +98,7 @@ public class NewPetScreen extends JFrame{
         numOfDaysLabel.setBounds(30, 120,100,25);
         numOfDaysField.setBounds(150, 120,150,25);
 
-        submitButton.setBounds(30,150,110,25);
+        submitButton.setBounds(190,155,110,25);
 
         userPetsLabel.setBounds(0, 190, 400, 25);
         userPetsLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -145,6 +145,17 @@ public class NewPetScreen extends JFrame{
 
     public void addSubmitButtonListener(ActionListener actionListener) {
         submitButton.addActionListener(actionListener);
+    }
+
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
+    public boolean checkEmptyFieldExist() {
+        String name = petNameField.getText();
+        String age = petAgeField.getText();
+        String days = numOfDaysField.getText();
+        return(name.length() == 0 || age.length() == 0 || days.length() == 0);
     }
 
     public void setList(Object[] itemList) {

@@ -109,6 +109,31 @@ public abstract class Pet {
         completedOperations.add(OperationType.VACCINATION);
     }
 
+    public void undoCutNails(){
+        completedOperations.remove(OperationType.NAILS);
+        todoOperations.add(OperationType.NAILS);
+    }
+
+    public void undoBath(){
+        completedOperations.remove(OperationType.BATH);
+        todoOperations.add(OperationType.BATH);
+    }
+
+    public void undoShave(){
+        completedOperations.remove(OperationType.SHAVE);
+        todoOperations.add(OperationType.SHAVE);
+    }
+
+    public void undoDentalCare(){
+        completedOperations.remove(OperationType.DENTAL_CARE);
+        todoOperations.add(OperationType.DENTAL_CARE);
+    }
+
+    public void undoVaccination(){
+        completedOperations.remove(OperationType.VACCINATION);
+        todoOperations.add(OperationType.VACCINATION);
+    }
+
     public abstract double getCompletedOperationCost();
 
     public abstract double getEstimatedOperationCost();
@@ -121,7 +146,7 @@ public abstract class Pet {
 
     @Override
     public String toString() {
-        return "Name = " + name + "    " + "Age = " + age + "    " + "Days = " + numOfDays;
+        return "Name = " + name + "    " + "Age = " + age + "    " + "Days = " + numOfDays+ "    " + "Remaining Operations = " + todoOperations.size();
     }
 }
 

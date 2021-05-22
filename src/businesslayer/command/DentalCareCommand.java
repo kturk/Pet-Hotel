@@ -14,4 +14,9 @@ public class DentalCareCommand implements Command{
     public void execute() {
         pet.dentalCare();
     }
+
+    @Override
+    public void undo() {
+        pet.undoDentalCare();
+    }
 }

@@ -8,6 +8,9 @@ public class ChatWithOwnerScreen extends JFrame{
 
     private JPanel panel;
 
+    private JLabel ownerNameLabel;
+    private JLabel ownerName;
+
     private JTextPane chatScreen;
     private JScrollPane scrollPane;
 
@@ -50,6 +53,10 @@ public class ChatWithOwnerScreen extends JFrame{
     }
 
     private void initializeComponents() {
+
+        ownerNameLabel = new JLabel("Owner Username: ");
+        ownerName = new JLabel();
+
         chatScreen = new JTextPane();
         scrollPane = new JScrollPane();
 
@@ -60,16 +67,22 @@ public class ChatWithOwnerScreen extends JFrame{
     }
 
     private void locateComponents() {
-        scrollPane.setBounds(30,30, 540,380);
-        newMessageField.setBounds(30, 430, 450, 50);
 
-        sendButton.setBounds(490,430,80,50);
-        backButton.setBounds(20,500,110,25);
+        ownerNameLabel.setBounds(30,20, 110, 25);
+        ownerName.setBounds(160,20, 110,25);
+
+        scrollPane.setBounds(30,50, 540,380);
+        newMessageField.setBounds(30, 450, 450, 50);
+
+        sendButton.setBounds(490,450,80,50);
+        backButton.setBounds(20,520,110,25);
     }
 
     private void addComponents() {
         chatScreen.setEditable(false);
         scrollPane.setViewportView(chatScreen);
+        panel.add(ownerNameLabel);
+        panel.add(ownerName);
         panel.add(scrollPane);
         panel.add(newMessageField);
 
@@ -77,8 +90,16 @@ public class ChatWithOwnerScreen extends JFrame{
         panel.add(backButton);
     }
 
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
     public JTextField getNewMessageField() {
         return newMessageField;
+    }
+
+    public void setOwnerName(String name){
+        ownerName.setText(name);
     }
 
     public void setNewMessageField(String newMessage) {

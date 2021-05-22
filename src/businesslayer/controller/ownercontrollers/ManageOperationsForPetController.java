@@ -85,11 +85,16 @@ public class ManageOperationsForPetController {
             OperationType selectedOperation =
                     (OperationType) manageOperationsForPetView.getPetTypeDropdown().getSelectedItem();
 
-            petModel.addTodoOperation(selectedOperation);
-            setTodoOperationsList();
-            updateOperationTypeList();
-            setEstimatedPrice();
-            mediator.writeXML();
+            if(selectedOperation != null){
+                petModel.addTodoOperation(selectedOperation);
+                setTodoOperationsList();
+                updateOperationTypeList();
+                setEstimatedPrice();
+                mediator.writeXML();
+            }
+            else
+                manageOperationsForPetView.showError("Please select an operation type from the menu!");
+
         }
     }
 
@@ -98,11 +103,16 @@ public class ManageOperationsForPetController {
             OperationType selectedOperation =
                     (OperationType) manageOperationsForPetView.getTodoList().getSelectedValue();
 
-            petModel.removeTodoOperation(selectedOperation);
-            setTodoOperationsList();
-            updateOperationTypeList();
-            setEstimatedPrice();
-            mediator.writeXML();
+            if(selectedOperation != null){
+                petModel.removeTodoOperation(selectedOperation);
+                setTodoOperationsList();
+                updateOperationTypeList();
+                setEstimatedPrice();
+                mediator.writeXML();
+            }
+            else
+                manageOperationsForPetView.showError("Please select an operation from the Upcoming Operations list!");
+
         }
     }
 

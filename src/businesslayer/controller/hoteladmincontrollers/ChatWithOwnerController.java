@@ -28,6 +28,7 @@ public class ChatWithOwnerController {
 
         this.chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
 
+        chatWithOwnerView.setOwnerName(ownerModel.getUserName().toUpperCase());
         chatWithOwnerView.addSendButtonListener(new SendButtonListener());
         chatWithOwnerView.addBackButtonListener(new BackButtonListener());
     }
@@ -83,10 +84,14 @@ public class ChatWithOwnerController {
     class SendButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String newMessage = "\n" + chatWithOwnerView.getNewMessageField().getText();  // TODO
-            ownerModel.addNewMessage(new ChatMessage("HotelAdmin", newMessage));
-            chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
-            chatWithOwnerView.setNewMessageField("");
-            mediator.writeXML();
+            if(newMessage.length() > 1){
+                ownerModel.addNewMessage(new ChatMessage("HotelAdmin", newMessage));
+                chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
+                chatWithOwnerView.setNewMessageField("");
+                mediator.writeXML();
+            }
+            else
+                chatWithOwnerView.showError("Please enter a message!");
         }
     }
 

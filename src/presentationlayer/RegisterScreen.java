@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginScreen extends JFrame{
+public class RegisterScreen extends JFrame{
 
     private JTextField usernameField;
     private JLabel usernameLabel;
@@ -13,14 +13,17 @@ public class LoginScreen extends JFrame{
     private JPasswordField passwordField;
     private JLabel passwordLabel;
 
-    private JButton loginButton;
+    private JPasswordField passwordConfirmationField;
+    private JLabel passwordConformationLabel;
+
+    private JButton registerButton;
 
     private JButton backButton;
 
     private JPanel loginPanel;
 
-    public LoginScreen() {
-        super("Login Screen");
+    public RegisterScreen() {
+        super("Register Screen");
         screenInitializer();
     }
 
@@ -54,18 +57,25 @@ public class LoginScreen extends JFrame{
     private void initializeComponents() {
         usernameLabel = new JLabel("Username: ");
         usernameField = new JTextField(10);
+
         passwordLabel = new JLabel("Password: ");
         passwordField = new JPasswordField(10);
-        loginButton = new JButton("Login");
+
+        passwordConformationLabel = new JLabel("Password Again: ");
+        passwordConfirmationField = new JPasswordField(10);
+
+        registerButton = new JButton("Register");
         backButton = new JButton("Back");
     }
 
     private void locateComponents() {
         usernameLabel.setBounds(20,20,100,25);
-        usernameField.setBounds(120, 20, 150, 25);
+        usernameField.setBounds(130, 20, 150, 25);
         passwordLabel.setBounds(20,60,100,25);
-        passwordField.setBounds(120, 60, 150, 25);
-        loginButton.setBounds(160, 100, 110, 25);
+        passwordField.setBounds(130, 60, 150, 25);
+        passwordConformationLabel.setBounds(20,100,100,25);
+        passwordConfirmationField.setBounds(130, 100, 150, 25);
+        registerButton.setBounds(170, 140, 110, 25);
         backButton.setBounds(15, 180, 110, 25);
     }
 
@@ -74,32 +84,41 @@ public class LoginScreen extends JFrame{
         loginPanel.add(usernameField);
         loginPanel.add(passwordLabel);
         loginPanel.add(passwordField);
-        loginPanel.add(loginButton);
+        loginPanel.add(passwordConformationLabel);
+        loginPanel.add(passwordConfirmationField);
+        loginPanel.add(registerButton);
         loginPanel.add(backButton);
     }
 
-    public void addButtonListener(ActionListener actionListener) {
-        loginButton.addActionListener(actionListener);
+    public JTextField getUsernameField() {
+        return usernameField;
     }
 
-    public Map<String, String> getCredentials() {
-        Map<String, String> credentials = new HashMap<String, String>();
-        credentials.put("username", usernameField.getText());
-        credentials.put("password", new String(passwordField.getPassword()));
-
-        return(credentials);
+    public JPasswordField getPasswordField() {
+        return passwordField;
     }
 
-    public void setScreenTitle(String title) {
-        setTitle(title + " Login Screen");
+    public JPasswordField getPasswordConfirmationField() {
+        return passwordConfirmationField;
+    }
+
+    public void addRegisterButtonListener(ActionListener actionListener) {
+        registerButton.addActionListener(actionListener);
+    }
+
+    public boolean checkEmptyFieldExist() {
+        String username = usernameField.getText();
+        String password = new String(passwordField.getPassword());
+        String passwordConformation = new String(passwordConfirmationField.getPassword());
+        return(username.length() == 0 || password.length() == 0 || passwordConformation.length() == 0);
     }
 
     public void addBackButtonListener(ActionListener actionListener) {
         backButton.addActionListener(actionListener);
     }
 
-    public void showError(String errorMessage) {
-        JOptionPane.showMessageDialog(this, errorMessage);
+    public void showWarning(String warningMessage) {
+        JOptionPane.showMessageDialog(this, warningMessage);
     }
 
     public void closeScreen(){

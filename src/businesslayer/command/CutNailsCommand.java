@@ -14,4 +14,9 @@ public class CutNailsCommand implements Command{
     public void execute() {
         pet.cutNails();
     }
+
+    @Override
+    public void undo() {
+        pet.undoCutNails();
+    }
 }

@@ -10,7 +10,6 @@ public abstract class User{
     private String id;
     private String userName;
     private String password;
-    // aunthentication with roles (hoteladmin, owner) cast later
 
 
     public User() {
@@ -45,7 +44,6 @@ public abstract class User{
 
     @Override
     public String toString() {
-        return "ID: " + id +
-                " -- " + userName.toUpperCase();
+        return "ID = " + id + "      " + " Username = " + userName.toUpperCase();
     }
 }

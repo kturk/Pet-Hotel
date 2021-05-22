@@ -39,10 +39,10 @@ public class Mediator {
     }
 
     public void navigateToLoginChoiceScreen() {
-        LoginController loginController = new LoginController(
-                admin, new LoginScreen(), new LoginChoiceScreen(),this);
+        AuthenticationController authenticationController = new AuthenticationController(
+                admin, new LoginScreen(), new LoginChoiceScreen(), new RegisterScreen(), this);
 
-        loginController.showLoginChoiceView();
+        authenticationController.showLoginChoiceView();
     }
 
     public void navigateToOwnerMainScreen() {

@@ -28,6 +28,7 @@ public class MakeOperationsController {
 
         makeOperationsView.addCompleteButtonListener(new CompleteButtonListener());
         makeOperationsView.addBackButtonListener(new BackButtonListener());
+        makeOperationsView.addUndoButtonListener(new UndoButtonListener());
 
         updateOperationsList();
     }
@@ -49,10 +50,30 @@ public class MakeOperationsController {
     class CompleteButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             OperationType selectedOperation = (OperationType) makeOperationsView.getTodoOperations().getSelectedValue();
-            Command command = commandFactory.getCommand(selectedOperation);
-            command.execute();
-            updateOperationsList();
-            mediator.writeXML();
+            if(selectedOperation != null){
+                Command command = commandFactory.getCommand(selectedOperation);
+                command.execute();
+                updateOperationsList();
+                mediator.writeXML();
+            }
+            else
+                makeOperationsView.showError("Please select an operation from waiting operations list!");
+
+        }
+    }
+
+    class UndoButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            OperationType selectedOperation = (OperationType) makeOperationsView.getCompletedOperations().getSelectedValue();
+            if(selectedOperation != null){
+                Command command = commandFactory.getCommand(selectedOperation);
+                command.undo();
+                updateOperationsList();
+                mediator.writeXML();
+            }
+            else
+                makeOperationsView.showError("Please select an operation from waiting operations list!");
+
         }
     }
 

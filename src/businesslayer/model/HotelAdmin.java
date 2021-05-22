@@ -80,4 +80,8 @@ public class HotelAdmin extends User{
         }
         return allPets;
     }
+
+    public boolean containsOwner(Owner owner) {
+        return ownerList.contains(owner);
+    }
 }

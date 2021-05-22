@@ -14,4 +14,9 @@ public class ShaveCommand implements Command{
     public void execute() {
         pet.shave();
     }
+
+    @Override
+    public void undo() {
+        pet.undoShave();
+    }
 }

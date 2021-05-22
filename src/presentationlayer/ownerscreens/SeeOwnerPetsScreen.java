@@ -90,6 +90,10 @@ public class SeeOwnerPetsScreen extends JFrame{
         checkoutButton.addActionListener(actionListener);
     }
 
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
     public JList getPetList() {
         return petList;
     }

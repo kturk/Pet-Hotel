@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<HotelAdmin>
+    <id>1</id>
+    <password>123</password>
+    <userName>admin</userName>
+    <Owners>
+        <Owner>
+            <id>2</id>
+            <password>123</password>
+            <userName>owner</userName>
+            <Pets>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>1</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>22</age>
+                    <name>kedy</name>
+                    <numOfDays>5</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="dog">
+                    <id>2</id>
+                    <CompletedOperations>
+                        <CompletedOperation>BATH</CompletedOperation>
+                        <CompletedOperation>DENTAL_CARE</CompletedOperation>
+                    </CompletedOperations>
+                    <ToDoOperations>
+                        <ToDoOperation>SHAVE</ToDoOperation>
+                        <ToDoOperation>VACCINATION</ToDoOperation>
+                        <ToDoOperation>NAILS</ToDoOperation>
+                    </ToDoOperations>
+                    <age>20</age>
+                    <name>kopke</name>
+                    <numOfDays>5</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>5</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>3</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>6</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>33</age>
+                    <name>a</name>
+                    <numOfDays>3</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>7</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>33</age>
+                    <name>ass</name>
+                    <numOfDays>3</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="dog">
+                    <id>8</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>33</age>
+                    <name>ass</name>
+                    <numOfDays>3</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>9</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>10</id>
+                    <CompletedOperations/>
+                    <ToDoOperations>
+                        <ToDoOperation>NAILS</ToDoOperation>
+                        <ToDoOperation>BATH</ToDoOperation>
+                        <ToDoOperation>VACCINATION</ToDoOperation>
+                        <ToDoOperation>DENTAL_CARE</ToDoOperation>
+                        <ToDoOperation>SHAVE</ToDoOperation>
+                    </ToDoOperations>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>11</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>12</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>13</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>14</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>15</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>16</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>17</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>2</age>
+                    <name>a</name>
+                    <numOfDays>2</numOfDays>
+                </Pet>
+            </Pets>
+            <Chats>
+                <Chat>
+                    <id>1</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>2</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+a</message>
+                </Chat>
+                <Chat>
+                    <id>3</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>4</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>5</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+a</message>
+                </Chat>
+                <Chat>
+                    <id>6</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+s</message>
+                </Chat>
+                <Chat>
+                    <id>18</id>
+                    <sender>Owner</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>19</id>
+                    <sender>Owner</sender>
+                    <message>
+a</message>
+                </Chat>
+            </Chats>
+        </Owner>
+        <Owner>
+            <id>3</id>
+            <password>123</password>
+            <userName>owner2</userName>
+            <Pets>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
+                    <id>3</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>11</age>
+                    <name>kedy2</name>
+                    <numOfDays>5</numOfDays>
+                </Pet>
+                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="dog">
+                    <id>4</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>10</age>
+                    <name>kopke2</name>
+                    <numOfDays>5</numOfDays>
+                </Pet>
+            </Pets>
+            <Chats>
+                <Chat>
+                    <id>7</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>8</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>9</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>10</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+s</message>
+                </Chat>
+                <Chat>
+                    <id>11</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>12</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>13</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+</message>
+                </Chat>
+                <Chat>
+                    <id>14</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+a</message>
+                </Chat>
+                <Chat>
+                    <id>15</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+x</message>
+                </Chat>
+                <Chat>
+                    <id>16</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+w</message>
+                </Chat>
+                <Chat>
+                    <id>17</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+dsad</message>
+                </Chat>
+                <Chat>
+                    <id>20</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+asd</message>
+                </Chat>
+                <Chat>
+                    <id>21</id>
+                    <sender>HotelAdmin</sender>
+                    <message>
+sdad</message>
+                </Chat>
+            </Chats>
+        </Owner>
+    </Owners>
+    <extraExpenses>30.0</extraExpenses>
+</HotelAdmin>
