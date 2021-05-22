@@ -18,6 +18,8 @@ public class NewPetScreen extends JFrame{
     private JLabel petAgeLabel;
     private JTextField petAgeField;
 
+    private JLabel numOfDaysLabel;
+    private JTextField numOfDaysField;
 
     private JButton submitButton;
     private JButton backButton;
@@ -35,7 +37,7 @@ public class NewPetScreen extends JFrame{
     }
 
     private void screenInitializer() {
-        setSize(400,500);
+        setSize(400,550);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -73,6 +75,10 @@ public class NewPetScreen extends JFrame{
         petAgeLabel = new JLabel("Pet Age:");
         petAgeField = new JTextField(10);
 
+        numOfDaysLabel = new JLabel("Days:");
+        numOfDaysField = new JTextField(10);
+
+
         submitButton = new JButton("Register Pet");
         backButton = new JButton("Back");
 
@@ -93,13 +99,16 @@ public class NewPetScreen extends JFrame{
         petAgeLabel.setBounds(30, 90,100,25);
         petAgeField.setBounds(150, 90,150,25);
 
-        submitButton.setBounds(30,120,110,25);
+        numOfDaysLabel.setBounds(30, 120,100,25);
+        numOfDaysField.setBounds(150, 120,150,25);
 
-        userPetsLabel.setBounds(0, 160, 400, 25);
+        submitButton.setBounds(30,150,110,25);
+
+        userPetsLabel.setBounds(0, 190, 400, 25);
         userPetsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        scrollPane.setBounds(30,190, 340,220);
+        scrollPane.setBounds(30,220, 340,220);
 
-        backButton.setBounds(20,430,110,25);
+        backButton.setBounds(20,480,110,25);
 
     }
 
@@ -108,6 +117,8 @@ public class NewPetScreen extends JFrame{
         panel.add(petTypeDropdown);
         panel.add(petNameLabel);
         panel.add(petNameField);
+        panel.add(numOfDaysLabel);
+        panel.add(numOfDaysField);
         panel.add(petAgeLabel);
         panel.add(petAgeField);
 
@@ -119,25 +130,8 @@ public class NewPetScreen extends JFrame{
         panel.add(scrollPane);
         panel.add(userPetsLabel);
 
-
-//        addKeyListener();
     }
 
-    private void addKeyListener(){
-        petAgeField.addKeyListener(new KeyAdapter() {
-            public void keyPressed(KeyEvent ke) {
-                String value = petAgeField.getText();
-                int l = value.length();
-                if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
-                    petAgeField.setEditable(true);
-//                    label.setText("");
-                } else {
-                    petAgeField.setEditable(false);
-//                    label.setText("* Enter only numeric digits(0-9)");
-                }
-            }
-        });
-    }
 
     public JComboBox<String> getPetTypeDropdown() {
         return petTypeDropdown;
@@ -149,6 +143,10 @@ public class NewPetScreen extends JFrame{
 
     public JTextField getPetAgeField() {
         return petAgeField;
+    }
+
+    public JTextField getNumOfDaysField() {
+        return numOfDaysField;
     }
 
     public void addSubmitButtonListener(ActionListener actionListener) {

@@ -33,7 +33,7 @@ public class Mediator {
 
         HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
         Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
-        owner1.addNewPet(new Cat("a",22));
+        owner1.addNewPet(new Cat("a",22, 4));
 
         owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "Hi"));
         owner1.getChatMessages().add(new ChatMessage("Owner", "\nHello"));

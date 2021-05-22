@@ -43,16 +43,16 @@ public class NewPetController {
     class SubmitButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String petType = newPetView.getPetTypeDropdown().getSelectedItem().toString();
-            System.out.println(petType);
             String petName = newPetView.getPetNameField().getText();
             int petAge = Integer.parseInt(newPetView.getPetAgeField().getText());
+            int numOfDays = Integer.parseInt(newPetView.getNumOfDaysField().getText());
             if(petType.equals("Cat")){
-                Cat cat = new Cat(petName, petAge);
+                Cat cat = new Cat(petName, petAge, numOfDays);
                 ((Owner) ownerModel).addNewPet(cat);
 
             }
             else if(petType.equals("Dog")){
-                Dog dog = new Dog(petName, petAge);
+                Dog dog = new Dog(petName, petAge, numOfDays);
                 ((Owner) ownerModel).addNewPet(dog);
             }
             newPetView.setList(((Owner) ownerModel).getPetList().toArray());

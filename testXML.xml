@@ -12,14 +12,18 @@
                 <Pet>
                     <id>1</id>
                     <CompletedOperations/>
-                    <ToDoOperations>
-                        <ToDoOperation>NAILS</ToDoOperation>
-                        <ToDoOperation>BATH</ToDoOperation>
-                        <ToDoOperation>VACCINATION</ToDoOperation>
-                    </ToDoOperations>
+                    <ToDoOperations/>
                     <age>22</age>
                     <name>a</name>
-                    <numOfDays>2</numOfDays>
+                    <numOfDays>4</numOfDays>
+                </Pet>
+                <Pet>
+                    <id>2</id>
+                    <CompletedOperations/>
+                    <ToDoOperations/>
+                    <age>1</age>
+                    <name>kopke</name>
+                    <numOfDays>7</numOfDays>
                 </Pet>
             </Pets>
             <Chats>

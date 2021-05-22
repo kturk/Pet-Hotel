@@ -11,7 +11,7 @@ public abstract class Pet {
     private String id;
     private String name;
     private int age;
-    private int numOfDays = 2;
+    private int numOfDays;
 
     @XmlElementWrapper(name = "CompletedOperations")
     @XmlElement(name = "CompletedOperation")
@@ -30,15 +30,17 @@ public abstract class Pet {
         this.age = -1;
         this.completedOperations = new ArrayList<OperationType>();
         this.todoOperations = new ArrayList<OperationType>();
+        this.numOfDays = -1;
     }
 
-    public Pet(String name, int age) {
+    public Pet(String name, int age, int numOfDays) {
         this.id = count.toString();
         count++;
         this.name = name;
         this.age = age;
         this.completedOperations = new ArrayList<OperationType>();
         this.todoOperations = new ArrayList<OperationType>();
+        this.numOfDays = numOfDays;
     }
 
     public String getName() {
@@ -119,7 +121,7 @@ public abstract class Pet {
 
     @Override
     public String toString() {
-        return "Name = " + name + "    " + "Age = " + age;
+        return "Name = " + name + "    " + "Age = " + age + "    " + "Days = " + numOfDays;
     }
 }
 

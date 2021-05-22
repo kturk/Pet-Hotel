@@ -4,8 +4,8 @@ public class Cat extends Pet{
 
     private final static double PRICEFORDAY = 30;
 
-    public Cat(String name, int age) {
-        super(name, age);
+    public Cat(String name, int age, int numOfDays) {
+        super(name, age, numOfDays);
     }
 
     @Override
