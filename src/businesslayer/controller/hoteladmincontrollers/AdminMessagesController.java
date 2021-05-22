@@ -1,7 +1,6 @@
 package businesslayer.controller.hoteladmincontrollers;
 
 import businesslayer.Mediator;
-import businesslayer.model.ChatMessage;
 import businesslayer.model.HotelAdmin;
 import businesslayer.model.Owner;
 import presentationlayer.hoteladminscreens.AdminMessagesScreen;
@@ -11,14 +10,12 @@ import java.awt.event.ActionListener;
 
 public class AdminMessagesController {
 
-    private HotelAdmin adminModel;
-
     private final AdminMessagesScreen adminMessagesView;
-
     private final Mediator mediator;
 
-    public AdminMessagesController(HotelAdmin adminModel, AdminMessagesScreen adminMessagesView, Mediator mediator) {
-        this.adminModel = adminModel;
+    public AdminMessagesController(
+            HotelAdmin adminModel, AdminMessagesScreen adminMessagesView, Mediator mediator)
+    {
         this.adminMessagesView = adminMessagesView;
         this.mediator = mediator;
 
@@ -39,6 +36,7 @@ public class AdminMessagesController {
 
     class SelectButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+
             Owner selectedOwner = (Owner) adminMessagesView.getOwners().getSelectedValue();
             if (selectedOwner != null) {
                 closeView();

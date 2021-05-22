@@ -33,5 +33,4 @@ public class ChatMessage {
     public String getMessage() {
         return message;
     }
-
 }

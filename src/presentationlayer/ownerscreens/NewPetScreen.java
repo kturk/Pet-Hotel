@@ -2,8 +2,7 @@ package presentationlayer.ownerscreens;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+
 
 public class NewPetScreen extends JFrame{
 
@@ -33,7 +32,6 @@ public class NewPetScreen extends JFrame{
     public NewPetScreen() {
         super("Add New Pet");
         screenInitializer();
-
     }
 
     private void screenInitializer() {
@@ -78,14 +76,12 @@ public class NewPetScreen extends JFrame{
         numOfDaysLabel = new JLabel("Days:");
         numOfDaysField = new JTextField(10);
 
-
         submitButton = new JButton("Register Pet");
         backButton = new JButton("Back");
 
         petList = new JList();
         scrollPane = new JScrollPane();
         userPetsLabel = new JLabel("My Pets");
-
     }
 
     private void locateComponents() {
@@ -109,7 +105,6 @@ public class NewPetScreen extends JFrame{
         scrollPane.setBounds(30,220, 340,220);
 
         backButton.setBounds(20,480,110,25);
-
     }
 
     private void addComponents() {
@@ -129,7 +124,6 @@ public class NewPetScreen extends JFrame{
 
         panel.add(scrollPane);
         panel.add(userPetsLabel);
-
     }
 
 
@@ -168,6 +162,5 @@ public class NewPetScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
 }
 

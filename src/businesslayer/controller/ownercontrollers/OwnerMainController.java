@@ -9,13 +9,12 @@ import java.awt.event.ActionListener;
 
 public class OwnerMainController {
 
-    private final Owner ownerModel;
     private final OwnerMainScreen ownerMainView;
-
     private final Mediator mediator;
 
-    public OwnerMainController(Owner ownerModel, OwnerMainScreen ownerMainView, Mediator mediator) {
-        this.ownerModel = ownerModel;
+    public OwnerMainController(
+            Owner ownerModel, OwnerMainScreen ownerMainView, Mediator mediator)
+    {
         this.ownerMainView = ownerMainView;
         this.mediator = mediator;
 
@@ -35,21 +34,6 @@ public class OwnerMainController {
         ownerMainView.closeScreen();
     }
 
-//    class LogoutListener implements ActionListener {
-//        public void actionPerformed(ActionEvent e) {
-//
-//            String userType = mediator.getUserType();
-//
-//            if(userType == "Admin"){
-//                closeAdminView();
-//            }
-//            else if(userType == "Owner"){
-//                closeOwnerView();
-//            }
-//
-//            mediator.navigateToLoginScreen();
-//        }
-//    }
 
     class OwnerNewPetListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -78,5 +62,4 @@ public class OwnerMainController {
             mediator.navigateToLoginChoiceScreen();
         }
     }
-
 }

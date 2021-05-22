@@ -2,7 +2,6 @@ package businesslayer.controller.hoteladmincontrollers;
 
 import businesslayer.Mediator;
 import businesslayer.model.ChatMessage;
-import businesslayer.model.HotelAdmin;
 import businesslayer.model.Owner;
 import presentationlayer.hoteladminscreens.ChatWithOwnerScreen;
 
@@ -16,16 +15,14 @@ import java.awt.event.ActionListener;
 
 public class ChatWithOwnerController {
 
-    private Owner ownerModel;
-    private HotelAdmin adminModel;
-
+    private final Owner ownerModel;
     private final ChatWithOwnerScreen chatWithOwnerView;
-
     private final Mediator mediator;
 
-    public ChatWithOwnerController(HotelAdmin adminModel, Owner ownerModel, ChatWithOwnerScreen chatWithOwnerView, Mediator mediator) {
+    public ChatWithOwnerController(
+            Owner ownerModel, ChatWithOwnerScreen chatWithOwnerView, Mediator mediator)
+    {
         this.ownerModel = ownerModel;
-        this.adminModel = adminModel;
         this.chatWithOwnerView = chatWithOwnerView;
         this.mediator = mediator;
 
@@ -54,7 +51,6 @@ public class ChatWithOwnerController {
                 }
             }
             catch(Exception e) { System.out.println(e); }
-
         return doc;
     }
 
@@ -86,7 +82,7 @@ public class ChatWithOwnerController {
 
     class SendButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String newMessage = "\n" + chatWithOwnerView.getNewMessageField().getText();
+            String newMessage = "\n" + chatWithOwnerView.getNewMessageField().getText();  // TODO
             ownerModel.addNewMessage(new ChatMessage("HotelAdmin", newMessage));
             chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
             chatWithOwnerView.setNewMessageField("");

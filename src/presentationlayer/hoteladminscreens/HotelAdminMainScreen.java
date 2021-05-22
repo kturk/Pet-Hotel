@@ -18,7 +18,6 @@ public class HotelAdminMainScreen extends JFrame{
     public HotelAdminMainScreen() {
         super("Admin Main Screen");
         screenInitializer();
-
     }
 
     private void screenInitializer() {
@@ -49,14 +48,12 @@ public class HotelAdminMainScreen extends JFrame{
     }
 
     private void initializeComponents() {
-
         userLabel = new JLabel("User: ");
 
         seeAllPetsButton = new JButton("All Pets");
         statisticsButton = new JButton("Statistics");
         messagesButton = new JButton("Messages");
         logoutButton = new JButton("Logout");
-
     }
 
     private void locateComponents() {
@@ -67,7 +64,6 @@ public class HotelAdminMainScreen extends JFrame{
         statisticsButton.setBounds(75,120,250,25);
         messagesButton.setBounds(75,160,250,25);
         logoutButton.setBounds(75,280,250,25);
-
     }
 
     private void addComponents() {

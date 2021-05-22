@@ -16,7 +16,9 @@ public class PetInvoiceController {
 
     private final Mediator mediator;
 
-    public PetInvoiceController(Owner ownerModel, Pet petModel, PetInvoiceScreen petInvoiceView, Mediator mediator) {
+    public PetInvoiceController(
+            Owner ownerModel, Pet petModel, PetInvoiceScreen petInvoiceView, Mediator mediator)
+    {
         this.ownerModel = ownerModel;
         this.petModel = petModel;
         this.petInvoiceView = petInvoiceView;
@@ -40,9 +42,9 @@ public class PetInvoiceController {
     }
 
     public void setPrices() {
-        Double totalOperationsPrice = petModel.getCompletedOperationCost();
-        Double totalDailyRentPrice = petModel.getTotalRentCost();
-        Double totalPrice = totalOperationsPrice + totalDailyRentPrice;
+        double totalOperationsPrice = petModel.getCompletedOperationCost();
+        double totalDailyRentPrice = petModel.getTotalRentCost();
+        double totalPrice = totalOperationsPrice + totalDailyRentPrice;
 
         petInvoiceView.setCompletedOperationsPrice(totalOperationsPrice);
         petInvoiceView.setTotalRentPrice(totalDailyRentPrice);
@@ -54,6 +56,7 @@ public class PetInvoiceController {
         public void actionPerformed(ActionEvent e) {
             ownerModel.removePet(petModel);
             closeView();
+            mediator.writeXML();
             mediator.navigateToSeeOwnerPetsScreen();
         }
     }
@@ -64,6 +67,4 @@ public class PetInvoiceController {
             mediator.navigateToSeeOwnerPetsScreen();
         }
     }
-
-
 }

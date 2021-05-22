@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 public class MakeOperationsScreen extends JFrame {
 
     private JPanel panel;
+
     private JLabel todoOperationsLabel;
     private JLabel completedOperationsLabel;
 
@@ -74,7 +75,6 @@ public class MakeOperationsScreen extends JFrame {
         completeButton.setBounds(210,130,80,25);
 
         backButton.setBounds(20,360,110,25);
-
     }
 
     private void addComponents() {

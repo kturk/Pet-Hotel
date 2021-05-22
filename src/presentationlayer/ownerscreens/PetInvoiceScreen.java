@@ -26,7 +26,6 @@ public class PetInvoiceScreen extends JFrame{
     private JScrollPane scrollPane;
 
 
-
     public PetInvoiceScreen() {
         super("Pet Invoice");
         screenInitializer();
@@ -61,7 +60,6 @@ public class PetInvoiceScreen extends JFrame{
     }
 
     private void initializeComponents() {
-
         backButton = new JButton("Back");
         checkoutButton = new JButton("Checkout");
 
@@ -79,11 +77,9 @@ public class PetInvoiceScreen extends JFrame{
         unfinishedOperationsLabel = new JLabel("Unfinished Operations");
         unfinishedOperationsList = new JList();
         scrollPane = new JScrollPane();
-
     }
 
     private void locateComponents() {
-
         petNameLabel.setBounds(20, 30, 160, 25);
         petName.setBounds(200, 30, 160, 25);
 
@@ -121,10 +117,7 @@ public class PetInvoiceScreen extends JFrame{
         panel.add(unfinishedOperationsLabel);
         scrollPane.setViewportView(unfinishedOperationsList);
         panel.add(scrollPane);
-
     }
-
-
 
     public void setCompletedOperationsPrice(double price) {
         completedOperationsPrice.setText(Double.toString(price));
@@ -154,7 +147,6 @@ public class PetInvoiceScreen extends JFrame{
         JOptionPane.showMessageDialog(this, errorMessage);
     }
 
-
     public void addBackButtonListener(ActionListener actionListener) {
         backButton.addActionListener(actionListener);
     }
@@ -166,7 +158,5 @@ public class PetInvoiceScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
-
 }
 

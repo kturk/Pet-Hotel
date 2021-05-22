@@ -14,12 +14,12 @@ import java.util.List;
 public class ManageOperationsForPetController {
 
     private final Pet petModel;
-
     private final ManageOperationsForPetScreen manageOperationsForPetView;
-
     private final Mediator mediator;
 
-    public ManageOperationsForPetController(Pet petModel, ManageOperationsForPetScreen manageOperationsForPetView, Mediator mediator) {
+    public ManageOperationsForPetController(
+            Pet petModel, ManageOperationsForPetScreen manageOperationsForPetView, Mediator mediator)
+    {
         this.petModel = petModel;
         this.manageOperationsForPetView = manageOperationsForPetView;
         this.mediator = mediator;
@@ -33,7 +33,6 @@ public class ManageOperationsForPetController {
         updateOperationTypeList();
         setTodoOperationsList();
         setDoneOperationsList();
-
     }
 
     // Deleting selected operation types from operations dropdown menu
@@ -41,8 +40,7 @@ public class ManageOperationsForPetController {
 
         manageOperationsForPetView.deleteAllOperationTypes();
 
-        List<OperationType> modifiedOperationTypes = new ArrayList<OperationType>();
-        modifiedOperationTypes.addAll(Arrays.asList(OperationType.values()));
+        List<OperationType> modifiedOperationTypes = new ArrayList<>(Arrays.asList(OperationType.values()));
 
         List<OperationType> selectedOperationTypes = new ArrayList<OperationType>();
 
@@ -55,7 +53,6 @@ public class ManageOperationsForPetController {
         setEstimatedPrice();
 
         this.manageOperationsForPetView.setOperationTypeDropDownList(modifiedOperationTypes);
-
     }
 
     private void setTodoOperationsList() {
@@ -64,10 +61,6 @@ public class ManageOperationsForPetController {
 
     private void setDoneOperationsList() {
         manageOperationsForPetView.setCompletedList(petModel.getCompletedOperations().toArray());
-    }
-
-    private void setPrices() {
-
     }
 
     private void setCompletedPrice() {
@@ -87,11 +80,11 @@ public class ManageOperationsForPetController {
     }
 
 
-
     class AddButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            OperationType selectedOperation = (OperationType) manageOperationsForPetView.getPetTypeDropdown().getSelectedItem();
-            System.out.println(selectedOperation.getLabel());
+            OperationType selectedOperation =
+                    (OperationType) manageOperationsForPetView.getPetTypeDropdown().getSelectedItem();
+
             petModel.addTodoOperation(selectedOperation);
             setTodoOperationsList();
             updateOperationTypeList();
@@ -102,8 +95,9 @@ public class ManageOperationsForPetController {
 
     class DeleteButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            OperationType selectedOperation = (OperationType) manageOperationsForPetView.getTodoList().getSelectedValue();
-            System.out.println(selectedOperation);
+            OperationType selectedOperation =
+                    (OperationType) manageOperationsForPetView.getTodoList().getSelectedValue();
+
             petModel.removeTodoOperation(selectedOperation);
             setTodoOperationsList();
             updateOperationTypeList();
@@ -118,6 +112,4 @@ public class ManageOperationsForPetController {
             mediator.navigateToSeeOwnerPetsScreen();
         }
     }
-
-
 }

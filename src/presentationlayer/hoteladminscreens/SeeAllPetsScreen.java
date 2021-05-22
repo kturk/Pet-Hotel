@@ -18,7 +18,6 @@ public class SeeAllPetsScreen extends JFrame{
     public SeeAllPetsScreen() {
         super("All Pets");
         screenInitializer();
-
     }
 
     private void screenInitializer() {

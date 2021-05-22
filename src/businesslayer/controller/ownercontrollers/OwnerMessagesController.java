@@ -14,13 +14,13 @@ import java.awt.event.ActionListener;
 
 public class OwnerMessagesController {
 
-    private Owner ownerModel;
-
+    private final Owner ownerModel;
     private final OwnerMessagesScreen ownerMessagesView;
-
     private final Mediator mediator;
 
-    public OwnerMessagesController(Owner ownerModel, OwnerMessagesScreen ownerMessagesView, Mediator mediator) {
+    public OwnerMessagesController(
+            Owner ownerModel, OwnerMessagesScreen ownerMessagesView, Mediator mediator)
+    {
         this.ownerModel = ownerModel;
         this.ownerMessagesView = ownerMessagesView;
         this.mediator = mediator;
@@ -56,6 +56,7 @@ public class OwnerMessagesController {
 
     private SimpleAttributeSet getAttributeSet(String alignment) {
         SimpleAttributeSet attributeSet = new SimpleAttributeSet();
+
         if (alignment.equals("left")) {
             StyleConstants.setAlignment(attributeSet, StyleConstants.ALIGN_LEFT);
             StyleConstants.setForeground(attributeSet, Color.RED);
@@ -80,7 +81,6 @@ public class OwnerMessagesController {
     }
 
 
-
     class SendButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String newMessage = "\n" + ownerMessagesView.getNewMessageField().getText();
@@ -97,6 +97,4 @@ public class OwnerMessagesController {
             mediator.navigateToOwnerMainScreen();
         }
     }
-
-
 }

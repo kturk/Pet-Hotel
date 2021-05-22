@@ -3,7 +3,6 @@ package businesslayer.controller;
 import businesslayer.Mediator;
 import businesslayer.model.HotelAdmin;
 import businesslayer.model.Owner;
-import businesslayer.model.User;
 import presentationlayer.LoginChoiceScreen;
 import presentationlayer.LoginScreen;
 
@@ -22,7 +21,9 @@ public class LoginController {
 
     private String userType;
 
-    public LoginController(HotelAdmin hotelAdmin, LoginScreen loginView, LoginChoiceScreen loginChoiceView, Mediator mediator) {
+    public LoginController(
+            HotelAdmin hotelAdmin, LoginScreen loginView, LoginChoiceScreen loginChoiceView, Mediator mediator)
+    {
         this.hotelAdmin = hotelAdmin;
         this.loginView = loginView;
         this.loginChoiceView = loginChoiceView;

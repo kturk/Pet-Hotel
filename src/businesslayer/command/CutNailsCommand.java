@@ -4,7 +4,7 @@ import businesslayer.model.Pet;
 
 public class CutNailsCommand implements Command{
 
-    private Pet pet;
+    private final Pet pet;
 
     public CutNailsCommand(Pet pet) {
         this.pet = pet;

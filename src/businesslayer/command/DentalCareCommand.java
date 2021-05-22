@@ -4,7 +4,7 @@ import businesslayer.model.Pet;
 
 public class DentalCareCommand implements Command{
 
-    private Pet pet;
+    private final Pet pet;
 
     public DentalCareCommand(Pet pet) {
         this.pet = pet;

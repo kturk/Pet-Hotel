@@ -18,7 +18,6 @@ public class OwnerMainScreen extends JFrame{
     public OwnerMainScreen() {
         super("Owner Main Screen");
         screenInitializer();
-
     }
 
     private void screenInitializer() {
@@ -56,15 +55,12 @@ public class OwnerMainScreen extends JFrame{
         seeOwnersPetsButton = new JButton("See My Pets");
         messagesButton = new JButton("Messages with Pet Hotel");
         logoutButton = new JButton("Logout");
-
     }
 
     private void locateComponents() {
 
         userLabel.setBounds(75, 30, 250 ,25);
 
-
-//        1.setBounds(75,80,250,25);
         newPetButton.setBounds(75,80,250,25);
         seeOwnersPetsButton.setBounds(75,120,250,25);
         messagesButton.setBounds(75,160,250,25);
@@ -109,5 +105,4 @@ public class OwnerMainScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
 }

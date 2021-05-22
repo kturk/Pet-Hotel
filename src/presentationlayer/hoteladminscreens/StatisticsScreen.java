@@ -31,7 +31,6 @@ public class StatisticsScreen extends JFrame{
     public StatisticsScreen() {
         super("Statistics");
         screenInitializer();
-
     }
 
     private void screenInitializer() {
@@ -80,11 +79,9 @@ public class StatisticsScreen extends JFrame{
         totalDailyExpense = new JLabel("0");
         totalOperationsExpense = new JLabel("0");
         totalProfit = new JLabel("0");
-
     }
 
     private void locateComponents() {
-
         newExpensesLabel.setBounds(20, 20, 90, 25);
         expensesTextField.setBounds(120, 20, 50, 25);
         setExpenseButton.setBounds(200,20,130,25);
@@ -96,14 +93,12 @@ public class StatisticsScreen extends JFrame{
         totalOperationsExpenseLabel.setBounds(20, 200, 160, 25);
         totalProfitLabel.setBounds(20, 250, 160, 25);
 
-
         expenses.setBounds(200, 80, 160, 25);
         totalDailyIncome.setBounds(200, 110, 160, 25);
         totalOperationsIncome.setBounds(200, 140, 160, 25);
         totalDailyExpense.setBounds(200, 170, 160, 25);
         totalOperationsExpense.setBounds(200, 200, 160, 25);
         totalProfit.setBounds(200, 250, 160, 25);
-
 
         backButton.setBounds(20,325,110,25);
     }
@@ -127,8 +122,6 @@ public class StatisticsScreen extends JFrame{
         panel.add(totalDailyExpense);
         panel.add(totalOperationsExpense);
         panel.add(totalProfit);
-
-//        addKeyListener();
     }
 
     public void setExpenses(double price) {
@@ -171,7 +164,6 @@ public class StatisticsScreen extends JFrame{
         JOptionPane.showMessageDialog(this, errorMessage);
     }
 
-
     public void addBackButtonListener(ActionListener actionListener) {
         backButton.addActionListener(actionListener);
     }
@@ -183,7 +175,5 @@ public class StatisticsScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
-
 }
 

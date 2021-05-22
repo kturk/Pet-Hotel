@@ -39,7 +39,8 @@ public class StatisticsController {
         Double totalOperationsIncome = hotelAdminModel.getTotalOperationsIncome();
         Double totalDailyExpense = hotelAdminModel.getTotalDailyRentingExpense();
         Double totalOperationsExpense = hotelAdminModel.getTotalOperationsExpense();
-        Double totalProfit = totalDailyIncome + totalOperationsIncome - totalDailyExpense - totalOperationsExpense - extraExpenses;
+        Double totalProfit =
+                totalDailyIncome + totalOperationsIncome - totalDailyExpense - totalOperationsExpense - extraExpenses;
 
         statisticsView.setExpenses(extraExpenses);
         statisticsView.setTotalDailyIncome(totalDailyIncome);

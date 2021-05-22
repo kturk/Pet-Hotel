@@ -1,7 +1,6 @@
 package presentationlayer.hoteladminscreens;
 
 import javax.swing.*;
-import javax.swing.text.StyledDocument;
 import java.awt.event.ActionListener;
 
 public class AdminMessagesScreen extends JFrame{
@@ -15,15 +14,10 @@ public class AdminMessagesScreen extends JFrame{
     private JButton selectButton;
     private JButton backButton;
 
-//    private JLabel userPetsLabel;
-//    private JList petList;
-
-
 
     public AdminMessagesScreen() {
         super("Messages with Pet Hotel");
         screenInitializer();
-
     }
 
     private void screenInitializer() {
@@ -60,8 +54,6 @@ public class AdminMessagesScreen extends JFrame{
 
         selectButton = new JButton("Select");
         backButton = new JButton("Back");
-
-//        userPetsLabel = new JLabel("My Pets");
     }
 
     private void locateComponents() {
@@ -111,7 +103,5 @@ public class AdminMessagesScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
-
 }
 

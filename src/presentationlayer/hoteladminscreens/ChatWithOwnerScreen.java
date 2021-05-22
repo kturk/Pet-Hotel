@@ -16,15 +16,10 @@ public class ChatWithOwnerScreen extends JFrame{
     private JButton sendButton;
     private JButton backButton;
 
-//    private JLabel userPetsLabel;
-//    private JList petList;
-
-
 
     public ChatWithOwnerScreen() {
         super("Messages with Pet Owner");
         screenInitializer();
-
     }
 
     private void screenInitializer() {
@@ -62,8 +57,6 @@ public class ChatWithOwnerScreen extends JFrame{
 
         sendButton = new JButton("Send");
         backButton = new JButton("Back");
-
-//        userPetsLabel = new JLabel("My Pets");
     }
 
     private void locateComponents() {
@@ -111,7 +104,5 @@ public class ChatWithOwnerScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
-
 }
 

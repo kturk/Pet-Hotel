@@ -2,8 +2,7 @@ package presentationlayer;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class LoginChoiceScreen extends JFrame{
 
@@ -73,7 +72,6 @@ public class LoginChoiceScreen extends JFrame{
     public void addOwnerButtonListener(ActionListener actionListener) {
         ownerButton.addActionListener(actionListener);
     }
-
 
     public void showError(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);

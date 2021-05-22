@@ -90,7 +90,6 @@ public class ManageOperationsForPetScreen extends JFrame{
 
         estimatedPrice = new JLabel("0");
         completedPrice = new JLabel("0");
-
     }
 
     private void locateComponents() {
@@ -124,7 +123,6 @@ public class ManageOperationsForPetScreen extends JFrame{
         completedScrollPane.setBounds(30,370, 540,150);
 
         backButton.setBounds(30,530,110,25);
-
     }
 
     private void addComponents() {
@@ -149,12 +147,7 @@ public class ManageOperationsForPetScreen extends JFrame{
         panel.add(estimatedPrice);
         panel.add(completedPriceLabel);
         panel.add(completedPrice);
-
-
-
-//        addKeyListener();
     }
-
 
     public JComboBox<OperationType> getPetTypeDropdown() {
         return operationTypeDropDown;
@@ -213,6 +206,5 @@ public class ManageOperationsForPetScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
 }
 

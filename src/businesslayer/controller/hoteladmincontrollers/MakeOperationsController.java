@@ -18,7 +18,9 @@ public class MakeOperationsController {
 
     private final CommandFactory commandFactory;
 
-    public MakeOperationsController(Pet petModel, MakeOperationsScreen makeOperationsView, Mediator mediator) {
+    public MakeOperationsController(
+            Pet petModel, MakeOperationsScreen makeOperationsView, Mediator mediator)
+    {
         this.petModel = petModel;
         this.makeOperationsView = makeOperationsView;
         this.mediator = mediator;
@@ -28,16 +30,12 @@ public class MakeOperationsController {
         makeOperationsView.addBackButtonListener(new BackButtonListener());
 
         updateOperationsList();
-
-//        seeAllPetsView.setList(((HotelAdmin) hotelAdminModel).getAllPets().toArray());
-
     }
 
     private void updateOperationsList() {
         makeOperationsView.setTodoOperations(petModel.getTodoOperations().toArray());
         makeOperationsView.setCompletedOperations(petModel.getCompletedOperations().toArray());
     }
-
 
     public void showView() {
         makeOperationsView.showScreen();
@@ -46,7 +44,6 @@ public class MakeOperationsController {
     public void closeView() {
         makeOperationsView.closeScreen();
     }
-
 
 
     class CompleteButtonListener implements ActionListener {
@@ -65,6 +62,4 @@ public class MakeOperationsController {
             mediator.navigateToHotelAdminMainScreen();
         }
     }
-
-
 }

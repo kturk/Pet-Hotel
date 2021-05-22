@@ -80,7 +80,6 @@ public class SeeOwnerPetsScreen extends JFrame{
 
         panel.add(scrollPane);
         panel.add(userPetsLabel);
-//        addKeyListener();
     }
 
     public void addSelectButtonListener(ActionListener actionListener) {
@@ -110,7 +109,5 @@ public class SeeOwnerPetsScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
-
 }
 

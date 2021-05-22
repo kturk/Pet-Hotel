@@ -9,13 +9,12 @@ import java.awt.event.ActionListener;
 
 public class HotelAdminMainController {
 
-    private final HotelAdmin hotelAdminModel;
     private final HotelAdminMainScreen adminMainView;
-
     private final Mediator mediator;
 
-    public HotelAdminMainController(HotelAdmin hotelAdminModel, HotelAdminMainScreen hotelAdminMainScreen, Mediator mediator) {
-        this.hotelAdminModel = hotelAdminModel;
+    public HotelAdminMainController(
+            HotelAdmin hotelAdminModel, HotelAdminMainScreen hotelAdminMainScreen, Mediator mediator)
+    {
         this.adminMainView = hotelAdminMainScreen;
         this.mediator = mediator;
 
