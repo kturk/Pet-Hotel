@@ -1,6 +1,9 @@
 package businesslayer.model;
 
 public class Dog extends Pet{
+
+    private final static double PRICEFORDAY = 40;
+
     public Dog(String name, int age) {
         super(name, age);
     }
@@ -22,11 +25,17 @@ public class Dog extends Pet{
         for(OperationType o : getTodoOperations()){
             estimatedCost += o.getPriceForDog();
         }
+//        estimatedCost += getTotalRentCost();
         return estimatedCost;
     }
 
     @Override
+    public double getTotalRentCost() {
+        return PRICEFORDAY * getNumOfDays();
+    }
+
+    @Override
     public String toString() {
-        return "Dog -->     " + super.toString();
+        return "Dog         " + super.toString();
     }
 }

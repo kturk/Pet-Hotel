@@ -12,7 +12,7 @@ public class SeeAllPetsScreen extends JFrame{
 
     private JLabel petsLabel;
     private JList petList;
-    JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
 
     public SeeAllPetsScreen() {

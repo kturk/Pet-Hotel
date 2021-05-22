@@ -10,7 +10,7 @@ public class AdminMessagesScreen extends JFrame{
 
     private JLabel ownersLabel;
     private JList owners;
-    JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
     private JButton selectButton;
     private JButton backButton;

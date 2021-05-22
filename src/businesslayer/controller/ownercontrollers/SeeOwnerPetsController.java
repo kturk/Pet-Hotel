@@ -23,6 +23,7 @@ public class SeeOwnerPetsController {
 
         seeOwnerPetsView.addSelectButtonListener(new SelectButtonListener());
         seeOwnerPetsView.addBackButtonListener(new BackButtonListener());
+        seeOwnerPetsView.addCheckoutButtonListener(new CheckoutButtonListener());
 
         seeOwnerPetsView.setList(this.ownerModel.getPetList().toArray());
 
@@ -43,6 +44,14 @@ public class SeeOwnerPetsController {
             Pet selectedPet = (Pet) seeOwnerPetsView.getPetList().getSelectedValue();
             closeView();
             mediator.navigateToManageOperationsForPetScreen(selectedPet);
+        }
+    }
+
+    class CheckoutButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            Pet selectedPet = (Pet) seeOwnerPetsView.getPetList().getSelectedValue();
+            closeView();
+            mediator.navigateToPetInvoiceScreen(selectedPet);
         }
     }
 

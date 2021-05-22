@@ -9,7 +9,7 @@ public class ChatWithOwnerScreen extends JFrame{
     private JPanel panel;
 
     private JTextPane chatScreen;
-    JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
     private JTextField newMessageField;
 

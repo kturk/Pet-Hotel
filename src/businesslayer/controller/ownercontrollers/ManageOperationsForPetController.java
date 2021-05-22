@@ -38,23 +38,21 @@ public class ManageOperationsForPetController {
 
     // Deleting selected operation types from operations dropdown menu
     private void updateOperationTypeList(){
+
         manageOperationsForPetView.deleteAllOperationTypes();
+
         List<OperationType> modifiedOperationTypes = new ArrayList<OperationType>();
         modifiedOperationTypes.addAll(Arrays.asList(OperationType.values()));
 
-        System.out.println("mo" + modifiedOperationTypes);
-
         List<OperationType> selectedOperationTypes = new ArrayList<OperationType>();
-
 
         selectedOperationTypes.addAll(petModel.getTodoOperations());
         selectedOperationTypes.addAll(petModel.getCompletedOperations());
 
-
-        System.out.println("se" + selectedOperationTypes);
-
         modifiedOperationTypes.removeAll(selectedOperationTypes);
-        System.out.println("mo2" + modifiedOperationTypes);
+
+        setCompletedPrice();
+        setEstimatedPrice();
 
         this.manageOperationsForPetView.setOperationTypeDropDownList(modifiedOperationTypes);
 
@@ -66,6 +64,18 @@ public class ManageOperationsForPetController {
 
     private void setDoneOperationsList() {
         manageOperationsForPetView.setCompletedList(petModel.getCompletedOperations().toArray());
+    }
+
+    private void setPrices() {
+
+    }
+
+    private void setCompletedPrice() {
+        manageOperationsForPetView.setCompletedPrice(petModel.getCompletedCost());
+    }
+
+    private void setEstimatedPrice() {
+        manageOperationsForPetView.setEstimatedPrice(petModel.getEstimatedCost());
     }
 
     public void showView() {
@@ -85,6 +95,7 @@ public class ManageOperationsForPetController {
             petModel.addTodoOperation(selectedOperation);
             setTodoOperationsList();
             updateOperationTypeList();
+            setEstimatedPrice();
             mediator.writeXML();
         }
     }
@@ -96,6 +107,7 @@ public class ManageOperationsForPetController {
             petModel.removeTodoOperation(selectedOperation);
             setTodoOperationsList();
             updateOperationTypeList();
+            setEstimatedPrice();
             mediator.writeXML();
         }
     }
@@ -103,7 +115,7 @@ public class ManageOperationsForPetController {
     class BackButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
-            mediator.navigateToOwnerMainScreen();
+            mediator.navigateToSeeOwnerPetsScreen();
         }
     }
 

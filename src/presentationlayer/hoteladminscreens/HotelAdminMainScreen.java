@@ -11,6 +11,8 @@ public class HotelAdminMainScreen extends JFrame{
 
     private JButton seeAllPetsButton;
     private JButton messagesButton;
+    private JButton statisticsButton;
+
     private JButton logoutButton;
 
     public HotelAdminMainScreen() {
@@ -51,6 +53,7 @@ public class HotelAdminMainScreen extends JFrame{
         userLabel = new JLabel("User: ");
 
         seeAllPetsButton = new JButton("All Pets");
+        statisticsButton = new JButton("Statistics");
         messagesButton = new JButton("Messages");
         logoutButton = new JButton("Logout");
 
@@ -61,14 +64,17 @@ public class HotelAdminMainScreen extends JFrame{
         userLabel.setBounds(75, 30, 250 ,25);
 
         seeAllPetsButton.setBounds(75,80,250,25);
-        messagesButton.setBounds(75,120,250,25);
+        statisticsButton.setBounds(75,120,250,25);
+        messagesButton.setBounds(75,160,250,25);
         logoutButton.setBounds(75,280,250,25);
+
     }
 
     private void addComponents() {
         buttonsPanel.add(userLabel);
 
         buttonsPanel.add(seeAllPetsButton);
+        buttonsPanel.add(statisticsButton);
         buttonsPanel.add(messagesButton);
         buttonsPanel.add(logoutButton);
     }
@@ -80,6 +86,10 @@ public class HotelAdminMainScreen extends JFrame{
 
     public void addSeeAllPetsButtonListener(ActionListener actionListener) {
         seeAllPetsButton.addActionListener(actionListener);
+    }
+
+    public void addStatisticsButtonListener(ActionListener actionListener) {
+        statisticsButton.addActionListener(actionListener);
     }
 
     public void addMessagesButtonListener(ActionListener actionListener) {

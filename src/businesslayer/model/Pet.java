@@ -11,6 +11,7 @@ public abstract class Pet {
     private String id;
     private String name;
     private int age;
+    private int numOfDays = 2;
 
     @XmlElementWrapper(name = "CompletedOperations")
     @XmlElement(name = "CompletedOperation")
@@ -54,6 +55,14 @@ public abstract class Pet {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getNumOfDays() {
+        return numOfDays;
+    }
+
+    public void setNumOfDays(int numOfDays) {
+        this.numOfDays = numOfDays;
     }
 
     public void addTodoOperation(OperationType operationType) {
@@ -106,9 +115,11 @@ public abstract class Pet {
 
     public abstract double getEstimatedCost();
 
+    public abstract double getTotalRentCost();
+
     @Override
     public String toString() {
-        return "Name = " + name + " -- " + "Age = " + age;
+        return "Name = " + name + "    " + "Age = " + age;
     }
 }
 

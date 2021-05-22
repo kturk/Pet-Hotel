@@ -22,6 +22,7 @@ public class HotelAdminMainController {
         adminMainView.renderUsername(hotelAdminModel.getUserName().toUpperCase());
 
         hotelAdminMainScreen.addSeeAllPetsButtonListener(new AdminSeeAllPetsListener());
+        hotelAdminMainScreen.addStatisticsButtonListener(new StatisticsListener());
         hotelAdminMainScreen.addMessagesButtonListener(new AdminMessagesListener());
         hotelAdminMainScreen.addLogoutButtonListener(new AdminLogoutListener());
     }
@@ -39,6 +40,13 @@ public class HotelAdminMainController {
         public void actionPerformed(ActionEvent e) {
             closeView();
             mediator.navigateToSeeAllPetsScreen();
+        }
+    }
+
+    class StatisticsListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            closeView();
+            mediator.navigateToStatisticsScreen();
         }
     }
 

@@ -58,4 +58,20 @@ public class Owner extends User{
     public void addNewMessage(ChatMessage message) {
         chatMessages.add(message);
     }
+
+    public Double getTotalDailyRentingPrice() {
+        Double totalDailyRentingPrice = 0.0;
+        for(Pet pet : petList){
+            totalDailyRentingPrice += pet.getTotalRentCost();
+        }
+        return totalDailyRentingPrice;
+    }
+
+    public Double getTotalOperationsPrice() {
+        Double totalOperationsPrice = 0.0;
+        for(Pet pet : petList){
+            totalOperationsPrice += pet.getCompletedCost();
+        }
+        return totalOperationsPrice;
+    }
 }

@@ -25,7 +25,7 @@ public class NewPetScreen extends JFrame{
 
     private JLabel userPetsLabel;
     private JList petList;
-    JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
 
     public NewPetScreen() {

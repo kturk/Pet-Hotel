@@ -8,11 +8,13 @@ public class SeeOwnerPetsScreen extends JFrame{
     private JPanel panel;
 
     private JButton selectButton;
+    private JButton checkoutButton;
+
     private JButton backButton;
 
     private JLabel userPetsLabel;
     private JList petList;
-    JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
 
     public SeeOwnerPetsScreen() {
@@ -50,6 +52,7 @@ public class SeeOwnerPetsScreen extends JFrame{
 
     private void initializeComponents() {
         selectButton = new JButton("Select");
+        checkoutButton = new JButton("Checkout");
         backButton = new JButton("Back");
 
         petList = new JList();
@@ -59,6 +62,7 @@ public class SeeOwnerPetsScreen extends JFrame{
 
     private void locateComponents() {
         selectButton.setBounds(30,300,110,25);
+        checkoutButton.setBounds(260, 300, 110,25);
 
         userPetsLabel.setBounds(0, 30, 400, 25);
         userPetsLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,6 +73,7 @@ public class SeeOwnerPetsScreen extends JFrame{
 
     private void addComponents() {
         panel.add(selectButton);
+        panel.add(checkoutButton);
         panel.add(backButton);
 
         scrollPane.setViewportView(petList);
@@ -80,6 +85,10 @@ public class SeeOwnerPetsScreen extends JFrame{
 
     public void addSelectButtonListener(ActionListener actionListener) {
         selectButton.addActionListener(actionListener);
+    }
+
+    public void addCheckoutButtonListener(ActionListener actionListener) {
+        checkoutButton.addActionListener(actionListener);
     }
 
     public JList getPetList() {
