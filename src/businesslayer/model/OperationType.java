@@ -8,12 +8,12 @@ public enum OperationType {
     SHAVE("Shave",30,20,0.5,0.5);
 
     private final String label;
-    private final int priceForDog;
-    private final int priceForCat;
+    private final double priceForDog;
+    private final double priceForCat;
     private final double timeForDog;
     private final double timeForCat;
 
-    private OperationType(String label, int priceForDog, int priceForCat, double timeForDog, double timeForCat) {
+    private OperationType(String label, double priceForDog, double priceForCat, double timeForDog, double timeForCat) {
         this.label = label;
         this.priceForDog = priceForDog;
         this.priceForCat = priceForCat;
@@ -25,11 +25,11 @@ public enum OperationType {
         return label;
     }
 
-    public int getPriceForDog() {
+    public double getPriceForDog() {
         return priceForDog;
     }
 
-    public int getPriceForCat() {
+    public double getPriceForCat() {
         return priceForCat;
     }
 

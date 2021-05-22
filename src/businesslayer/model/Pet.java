@@ -3,7 +3,7 @@ package businesslayer.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pet {
+public abstract class Pet {
 
     private static int count = 1;
     private int id;
@@ -82,6 +82,10 @@ public class Pet {
         completedOperations.add(OperationType.VACCINATION);
         System.out.println("Vaccination");
     }
+
+    public abstract double getCompletedCost();
+
+    public abstract double getEstimatedCost();
 
     @Override
     public String toString() {
