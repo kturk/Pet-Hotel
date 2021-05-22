@@ -56,7 +56,7 @@ public class NewPetController {
                 ((Owner) ownerModel).addNewPet(dog);
             }
             newPetView.setList(((Owner) ownerModel).getPetList().toArray());
-
+            mediator.writeXML();
         }
     }
 

@@ -90,6 +90,7 @@ public class ChatWithOwnerController {
             ownerModel.addNewMessage(new ChatMessage("HotelAdmin", newMessage));
             chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
             chatWithOwnerView.setNewMessageField("");
+            mediator.writeXML();
         }
     }
 

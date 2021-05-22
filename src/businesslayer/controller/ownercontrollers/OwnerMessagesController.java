@@ -87,6 +87,7 @@ public class OwnerMessagesController {
             ownerModel.addNewMessage(new ChatMessage("Owner", newMessage));
             ownerMessagesView.setChatScreenDocument(getChatMessagesAsDocument());
             ownerMessagesView.setNewMessageField("");
+            mediator.writeXML();
         }
     }
 

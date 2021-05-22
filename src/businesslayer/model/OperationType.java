@@ -1,5 +1,9 @@
 package businesslayer.model;
 
+import javax.xml.bind.annotation.*;
+
+@XmlType(name = "OperationType")
+@XmlEnum
 public enum OperationType {
     NAILS("Nails",30,20,0.5,0.5),
     BATH("Bath",30,20,0.5,0.5),

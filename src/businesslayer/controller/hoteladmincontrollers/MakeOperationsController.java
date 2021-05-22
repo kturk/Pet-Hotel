@@ -55,6 +55,7 @@ public class MakeOperationsController {
             Command command = commandFactory.getCommand(selectedOperation);
             command.execute();
             updateOperationsList();
+            mediator.writeXML();
         }
     }
 

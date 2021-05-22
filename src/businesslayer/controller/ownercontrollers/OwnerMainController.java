@@ -1,4 +1,4 @@
-package businesslayer.controller;
+package businesslayer.controller.ownercontrollers;
 
 import businesslayer.Mediator;
 import businesslayer.model.Owner;

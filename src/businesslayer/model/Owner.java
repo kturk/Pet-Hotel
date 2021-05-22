@@ -1,18 +1,34 @@
 package businesslayer.model;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement(name = "User")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Owner extends User{
 
+    @XmlElementWrapper(name = "Pets")
+    @XmlElement(name = "Pet")
+//    @XmlIDREF
     private List<Pet> petList;
+
+    @XmlElementWrapper(name="Chats")
+    @XmlElement(name = "Chat")
+//    @XmlIDREF
+//    @XmlTransient
     private List<ChatMessage> chatMessages;
+
+    public Owner() {
+        super();
+        this.petList = new ArrayList<Pet>();
+        this.chatMessages = new ArrayList<ChatMessage>();
+    }
 
     public Owner(String userName, String password) {
         super(userName, password);
         this.petList = new ArrayList<Pet>();
         this.chatMessages = new ArrayList<ChatMessage>();
-
     }
 
     public List<Pet> getPetList() {

@@ -1,4 +1,4 @@
-package businesslayer.controller;
+package businesslayer.controller.hoteladmincontrollers;
 
 import businesslayer.Mediator;
 import businesslayer.model.HotelAdmin;

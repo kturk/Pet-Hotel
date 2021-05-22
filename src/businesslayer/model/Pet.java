@@ -1,19 +1,38 @@
 package businesslayer.model;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pet {
 
-    private static int count = 1;
-    private int id;
+    private static Integer count = 1;
+    @XmlID
+    private String id;
     private String name;
     private int age;
+
+    @XmlElementWrapper(name = "CompletedOperations")
+    @XmlElement(name = "CompletedOperation")
+//    @XmlTransient
     private List<OperationType> completedOperations;
+
+    @XmlElementWrapper(name = "ToDoOperations")
+    @XmlElement(name = "ToDoOperation")
+//    @XmlTransient
     private List<OperationType> todoOperations;
 
+    public Pet() {
+        this.id = count.toString();
+        count++;
+        this.name = "";
+        this.age = -1;
+        this.completedOperations = new ArrayList<OperationType>();
+        this.todoOperations = new ArrayList<OperationType>();
+    }
+
     public Pet(String name, int age) {
-        this.id = count;
+        this.id = count.toString();
         count++;
         this.name = name;
         this.age = age;

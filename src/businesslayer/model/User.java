@@ -1,19 +1,27 @@
 package businesslayer.model;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import javax.xml.bind.annotation.XmlID;
 
 public abstract class User{
 
-    private static int count = 1;
-    private int id;
+    private static Integer count = 1;
+    @XmlID
+    private String id;
     private String userName;
     private String password;
     // aunthentication with roles (hoteladmin, owner) cast later
 
 
+    public User() {
+        this.id = count.toString();
+        count++;
+        this.userName = "";
+        this.password = "";
+    }
+
     public User(String userName, String password) {
-        this.id = count;
+        this.id = count.toString();
         count++;
         this.userName = userName;
         this.password = password;
