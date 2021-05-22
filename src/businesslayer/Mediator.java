@@ -1,17 +1,13 @@
 package businesslayer;
 
 import businesslayer.controller.*;
-import businesslayer.controller.hoteladmincontrollers.MakeOperationsController;
-import businesslayer.controller.hoteladmincontrollers.SeeAllPetsController;
-import businesslayer.controller.ownercontrollers.ManageOperationsForPetController;
-import businesslayer.controller.ownercontrollers.NewPetController;
-import businesslayer.controller.ownercontrollers.OwnerMessagesController;
-import businesslayer.controller.ownercontrollers.SeeOwnerPetsController;
+import businesslayer.controller.hoteladmincontrollers.*;
+import businesslayer.controller.ownercontrollers.*;
 import businesslayer.model.*;
+import dataaccesslayer.DataHandler;
+import dataaccesslayer.IDataHandler;
 import presentationlayer.*;
-import presentationlayer.hoteladminscreens.HotelAdminMainScreen;
-import presentationlayer.hoteladminscreens.MakeOperationsScreen;
-import presentationlayer.hoteladminscreens.SeeAllPetsScreen;
+import presentationlayer.hoteladminscreens.*;
 import presentationlayer.ownerscreens.*;
 
 public class Mediator {
@@ -23,6 +19,8 @@ public class Mediator {
     private UserCreator adminCreator;
     private UserCreator ownerCreator;
 
+    private final IDataHandler dataHandler;
+
     public Mediator() {
 
         dogCreator = new DogCreator();
@@ -30,18 +28,29 @@ public class Mediator {
         ownerCreator = new OwnerCreator();
         adminCreator = new AdminCreator();
 
-        HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
-        Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
-        owner1.addNewPet(new Cat("a",22));
+        this.dataHandler = new DataHandler("testXML.xml");
+        this.readXML();
 
-        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "Hi"));
-        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHello"));
-        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHow is my kedy"));
-        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "\nHe's awesome"));
+//        HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
+//        Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
+//        owner1.addNewPet(new Cat("a",22));
+//
+//        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "Hi"));
+//        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHello"));
+//        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHow is my kedy"));
+//        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "\nHe's awesome"));
+//
+//        this.admin = admin1;
+//        this.admin.addOwner(owner1);
 
-        this.admin = admin1;
-        this.admin.addOwner(owner1);
+    }
 
+    public void readXML() {
+        this.admin = dataHandler.readXML();
+    }
+
+    public void writeXML() {
+        dataHandler.writeXML(this.admin);
     }
 
     public void start(){
@@ -96,5 +105,15 @@ public class Mediator {
     public void navigateToOwnerMessagesScreen() {
         OwnerMessagesController ownerMessagesController = new OwnerMessagesController(loggedUser, new OwnerMessagesScreen(), this);
         ownerMessagesController.showView();
+    }
+
+    public void navigateToAdminMessagesScreen() {
+        AdminMessagesController adminMessagesController = new AdminMessagesController(admin, new AdminMessagesScreen(), this);
+        adminMessagesController.showView();
+    }
+
+    public void navigateToChatWithOwnerScreen(Owner owner) {
+        ChatWithOwnerController chatWithOwnerController = new ChatWithOwnerController(admin, owner, new ChatWithOwnerScreen(), this);
+        chatWithOwnerController.showView();
     }
 }

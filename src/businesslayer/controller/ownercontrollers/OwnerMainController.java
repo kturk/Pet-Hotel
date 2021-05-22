@@ -1,4 +1,4 @@
-package businesslayer.controller;
+package businesslayer.controller.ownercontrollers;
 
 import businesslayer.Mediator;
 import businesslayer.model.Owner;
@@ -25,7 +25,6 @@ public class OwnerMainController {
         ownerMainView.addSeeOwnersPetsButtonListener(new OwnerSeePetsListener());
         ownerMainView.addMessagesButtonListener(new OwnerMessagesListener());
         ownerMainView.addNewPetButtonListener(new OwnerNewPetListener());
-
     }
 
     public void showView() {

@@ -1,4 +1,4 @@
-package businesslayer.controller;
+package businesslayer.controller.hoteladmincontrollers;
 
 import businesslayer.Mediator;
 import businesslayer.model.HotelAdmin;
@@ -22,9 +22,8 @@ public class HotelAdminMainController {
         adminMainView.renderUsername(hotelAdminModel.getUserName().toUpperCase());
 
         hotelAdminMainScreen.addSeeAllPetsButtonListener(new AdminSeeAllPetsListener());
+        hotelAdminMainScreen.addMessagesButtonListener(new AdminMessagesListener());
         hotelAdminMainScreen.addLogoutButtonListener(new AdminLogoutListener());
-
-
     }
 
     public void showView() {
@@ -40,6 +39,13 @@ public class HotelAdminMainController {
         public void actionPerformed(ActionEvent e) {
             closeView();
             mediator.navigateToSeeAllPetsScreen();
+        }
+    }
+
+    class AdminMessagesListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            closeView();
+            mediator.navigateToAdminMessagesScreen();
         }
     }
 

@@ -4,6 +4,6 @@ import businesslayer.model.User;
 
 public interface UserCreator {
 
-    public User createUser(String userName, String password);
+    User createUser(String userName, String password);
 
 }

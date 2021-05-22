@@ -70,7 +70,7 @@ public class NewPetScreen extends JFrame{
         petNameLabel = new JLabel("Pet Name:");
         petNameField = new JTextField(10);
 
-        petAgeLabel = new JLabel("Pet Name:");
+        petAgeLabel = new JLabel("Pet Age:");
         petAgeField = new JTextField(10);
 
         submitButton = new JButton("Register Pet");

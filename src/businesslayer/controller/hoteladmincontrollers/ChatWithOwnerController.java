@@ -1,8 +1,10 @@
-package businesslayer.controller.ownercontrollers;
+package businesslayer.controller.hoteladmincontrollers;
 
 import businesslayer.Mediator;
-import businesslayer.model.*;
-import presentationlayer.ownerscreens.OwnerMessagesScreen;
+import businesslayer.model.ChatMessage;
+import businesslayer.model.HotelAdmin;
+import businesslayer.model.Owner;
+import presentationlayer.hoteladminscreens.ChatWithOwnerScreen;
 
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.SimpleAttributeSet;
@@ -12,23 +14,25 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OwnerMessagesController {
+public class ChatWithOwnerController {
 
     private Owner ownerModel;
+    private HotelAdmin adminModel;
 
-    private final OwnerMessagesScreen ownerMessagesView;
+    private final ChatWithOwnerScreen chatWithOwnerView;
 
     private final Mediator mediator;
 
-    public OwnerMessagesController(Owner ownerModel, OwnerMessagesScreen ownerMessagesView, Mediator mediator) {
+    public ChatWithOwnerController(HotelAdmin adminModel, Owner ownerModel, ChatWithOwnerScreen chatWithOwnerView, Mediator mediator) {
         this.ownerModel = ownerModel;
-        this.ownerMessagesView = ownerMessagesView;
+        this.adminModel = adminModel;
+        this.chatWithOwnerView = chatWithOwnerView;
         this.mediator = mediator;
 
-        this.ownerMessagesView.setChatScreenDocument(getChatMessagesAsDocument());
+        this.chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
 
-        ownerMessagesView.addSendButtonListener(new SendButtonListener());
-        ownerMessagesView.addBackButtonListener(new BackButtonListener());
+        chatWithOwnerView.addSendButtonListener(new SendButtonListener());
+        chatWithOwnerView.addBackButtonListener(new BackButtonListener());
     }
 
     public StyledDocument getChatMessagesAsDocument() {
@@ -41,12 +45,12 @@ public class OwnerMessagesController {
             try
             {
                 if (isSenderHotelAdmin(message)) {
-                    doc.insertString(doc.getLength(), message.getMessage(), left);
-                    doc.setParagraphAttributes(doc.getLength(), 1, left, false);
-                }
-                else{
                     doc.insertString(doc.getLength(), message.getMessage(), right);
                     doc.setParagraphAttributes(doc.getLength(), 1, right, false);
+                }
+                else{
+                    doc.insertString(doc.getLength(), message.getMessage(), left);
+                    doc.setParagraphAttributes(doc.getLength(), 1, left, false);
                 }
             }
             catch(Exception e) { System.out.println(e); }
@@ -72,21 +76,20 @@ public class OwnerMessagesController {
     }
 
     public void showView() {
-        ownerMessagesView.showScreen();
+        chatWithOwnerView.showScreen();
     }
 
     public void closeView() {
-        ownerMessagesView.closeScreen();
+        chatWithOwnerView.closeScreen();
     }
-
 
 
     class SendButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String newMessage = "\n" + ownerMessagesView.getNewMessageField().getText();
-            ownerModel.addNewMessage(new ChatMessage("Owner", newMessage));
-            ownerMessagesView.setChatScreenDocument(getChatMessagesAsDocument());
-            ownerMessagesView.setNewMessageField("");
+            String newMessage = "\n" + chatWithOwnerView.getNewMessageField().getText();
+            ownerModel.addNewMessage(new ChatMessage("HotelAdmin", newMessage));
+            chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
+            chatWithOwnerView.setNewMessageField("");
             mediator.writeXML();
         }
     }
@@ -94,9 +97,7 @@ public class OwnerMessagesController {
     class BackButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
-            mediator.navigateToOwnerMainScreen();
+            mediator.navigateToAdminMessagesScreen();
         }
     }
-
-
 }

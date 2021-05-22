@@ -85,6 +85,7 @@ public class ManageOperationsForPetController {
             petModel.addTodoOperation(selectedOperation);
             setTodoOperationsList();
             updateOperationTypeList();
+            mediator.writeXML();
         }
     }
 
@@ -95,6 +96,7 @@ public class ManageOperationsForPetController {
             petModel.removeTodoOperation(selectedOperation);
             setTodoOperationsList();
             updateOperationTypeList();
+            mediator.writeXML();
         }
     }
 

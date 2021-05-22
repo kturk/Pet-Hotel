@@ -4,5 +4,5 @@ import businesslayer.model.Pet;
 
 public interface PetCreator {
 
-    public Pet createPet(String name, int age);
+    Pet createPet(String name, int age);
 }
