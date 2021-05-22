@@ -34,14 +34,18 @@ public class StatisticsController {
     }
 
     public void setPrices() {
-        Double expenses = hotelAdminModel.getHotelExpenses();
+        Double extraExpenses = hotelAdminModel.getExtraExpenses();
         Double totalDailyIncome = hotelAdminModel.getTotalDailyRentingIncome();
         Double totalOperationsIncome = hotelAdminModel.getTotalOperationsIncome();
-        Double totalProfit = totalDailyIncome + totalOperationsIncome - expenses;
+        Double totalDailyExpense = hotelAdminModel.getTotalDailyRentingExpense();
+        Double totalOperationsExpense = hotelAdminModel.getTotalOperationsExpense();
+        Double totalProfit = totalDailyIncome + totalOperationsIncome - totalDailyExpense - totalOperationsExpense - extraExpenses;
 
-        statisticsView.setExpenses(expenses);
+        statisticsView.setExpenses(extraExpenses);
         statisticsView.setTotalDailyIncome(totalDailyIncome);
         statisticsView.setTotalOperationsIncome(totalOperationsIncome);
+        statisticsView.setTotalDailyExpense(totalDailyExpense);
+        statisticsView.setTotalOperationsExpense(totalOperationsExpense);
         statisticsView.setTotalProfit(totalProfit);
     }
 
@@ -52,8 +56,9 @@ public class StatisticsController {
 
             try {
                 Double expense = Double.parseDouble(newExpense);
-                hotelAdminModel.setHotelExpenses(expense);
+                hotelAdminModel.addExtraExpense(expense);
                 setPrices();
+                statisticsView.setExpensesTextField("");
             }
             catch (NumberFormatException exception){
                 statisticsView.showError("Please enter a number!");

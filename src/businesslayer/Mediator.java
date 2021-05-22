@@ -27,21 +27,20 @@ public class Mediator {
         catCreator = new CatCreator();
         ownerCreator = new OwnerCreator();
         adminCreator = new AdminCreator();
-
         this.dataHandler = new DataHandler("testXML.xml");
-//        this.readXML();
+        this.readXML();
 
-        HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
-        Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
-        owner1.addNewPet(new Cat("a",22, 4));
-
-        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "Hi"));
-        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHello"));
-        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHow is my kedy"));
-        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "\nHe's awesome"));
-
-        this.admin = admin1;
-        this.admin.addOwner(owner1);
+//        HotelAdmin admin1 = (HotelAdmin) adminCreator.createUser("admin", "123");
+//        Owner owner1 = (Owner) ownerCreator.createUser("owner", "123");
+//        owner1.addNewPet(new Cat("a",22, 4));
+//
+//        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "Hi"));
+//        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHello"));
+//        owner1.getChatMessages().add(new ChatMessage("Owner", "\nHow is my kedy"));
+//        owner1.getChatMessages().add(new ChatMessage("HotelAdmin", "\nHe's awesome"));
+//
+//        this.admin = admin1;
+//        this.admin.addOwner(owner1);
 
     }
 

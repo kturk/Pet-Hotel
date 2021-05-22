@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlSeeAlso({Cat.class, Dog.class})
 public abstract class Pet {
 
     private static Integer count = 1;
@@ -86,38 +87,37 @@ public abstract class Pet {
     public void cutNails(){
         todoOperations.remove(OperationType.NAILS);
         completedOperations.add(OperationType.NAILS);
-        System.out.println("cutted");
     }
 
     public void bath(){
         todoOperations.remove(OperationType.BATH);
         completedOperations.add(OperationType.BATH);
-        System.out.println("Bath");
     }
 
     public void shave(){
         todoOperations.remove(OperationType.SHAVE);
         completedOperations.add(OperationType.SHAVE);
-        System.out.println("Shave");
     }
 
     public void dentalCare(){
         todoOperations.remove(OperationType.DENTAL_CARE);
         completedOperations.add(OperationType.DENTAL_CARE);
-        System.out.println("Dental Care");
     }
 
     public void vaccination(){
         todoOperations.remove(OperationType.VACCINATION);
         completedOperations.add(OperationType.VACCINATION);
-        System.out.println("Vaccination");
     }
 
-    public abstract double getCompletedCost();
+    public abstract double getCompletedOperationCost();
 
-    public abstract double getEstimatedCost();
+    public abstract double getEstimatedOperationCost();
+
+    public abstract double getCompletedOperationExpense();
 
     public abstract double getTotalRentCost();
+
+    public abstract double getTotalRentExpense();
 
     @Override
     public String toString() {

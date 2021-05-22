@@ -7,7 +7,6 @@ import presentationlayer.ownerscreens.PetInvoiceScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 public class PetInvoiceController {
 
@@ -41,7 +40,7 @@ public class PetInvoiceController {
     }
 
     public void setPrices() {
-        Double totalOperationsPrice = petModel.getCompletedCost();
+        Double totalOperationsPrice = petModel.getCompletedOperationCost();
         Double totalDailyRentPrice = petModel.getTotalRentCost();
         Double totalPrice = totalOperationsPrice + totalDailyRentPrice;
 

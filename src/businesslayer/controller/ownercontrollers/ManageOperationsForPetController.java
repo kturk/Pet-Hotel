@@ -71,11 +71,11 @@ public class ManageOperationsForPetController {
     }
 
     private void setCompletedPrice() {
-        manageOperationsForPetView.setCompletedPrice(petModel.getCompletedCost());
+        manageOperationsForPetView.setCompletedPrice(petModel.getCompletedOperationCost());
     }
 
     private void setEstimatedPrice() {
-        manageOperationsForPetView.setEstimatedPrice(petModel.getEstimatedCost());
+        manageOperationsForPetView.setEstimatedPrice(petModel.getEstimatedOperationCost());
     }
 
     public void showView() {

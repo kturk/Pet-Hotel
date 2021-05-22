@@ -11,26 +11,26 @@ public class HotelAdmin extends User{
     @XmlElementWrapper(name = "Owners")
     @XmlElement(name = "Owner")
     private List<Owner> ownerList;
-    private double hotelExpenses;
+    private double extraExpenses;
 
     public HotelAdmin() {
         super();
         this.ownerList = new ArrayList<Owner>();
-        this.hotelExpenses = 0;
+        this.extraExpenses = 0;
     }
 
     public HotelAdmin(String userName, String password) {
         super(userName, password);
         this.ownerList = new ArrayList<Owner>();
-        this.hotelExpenses = 0;
+        this.extraExpenses = 0;
     }
 
-    public double getHotelExpenses() {
-        return hotelExpenses;
+    public double getExtraExpenses() {
+        return extraExpenses;
     }
 
-    public void setHotelExpenses(double hotelExpenses) {
-        this.hotelExpenses = hotelExpenses;
+    public void addExtraExpense(double expense) {
+        extraExpenses += expense;
     }
 
     public List<Owner> getOwnerList() {
@@ -55,6 +55,22 @@ public class HotelAdmin extends User{
             totalOperationsIncome += owner.getTotalOperationsPrice();
         }
         return totalOperationsIncome;
+    }
+
+    public Double getTotalDailyRentingExpense() {
+        Double totalDailyRentingExpense = 0.0;
+        for(Owner owner : ownerList) {
+            totalDailyRentingExpense += owner.getTotalDailyRentingExpense();
+        }
+        return totalDailyRentingExpense;
+    }
+
+    public Double getTotalOperationsExpense() {
+        Double totalOperationsExpense = 0.0;
+        for(Owner owner : ownerList) {
+            totalOperationsExpense += owner.getTotalOperationsExpense();
+        }
+        return totalOperationsExpense;
     }
 
     public List<Pet> getAllPets() {

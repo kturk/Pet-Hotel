@@ -16,11 +16,15 @@ public class StatisticsScreen extends JFrame{
     private JLabel expensesLabel;
     private JLabel totalDailyIncomeLabel;
     private JLabel totalOperationsIncomeLabel;
+    private JLabel totalDailyExpenseLabel;
+    private JLabel totalOperationsExpenseLabel;
     private JLabel totalProfitLabel;
 
     private JLabel expenses;
     private JLabel totalDailyIncome;
     private JLabel totalOperationsIncome;
+    private JLabel totalDailyExpense;
+    private JLabel totalOperationsExpense;
     private JLabel totalProfit;
 
 
@@ -31,7 +35,7 @@ public class StatisticsScreen extends JFrame{
     }
 
     private void screenInitializer() {
-        setSize(400,320);
+        setSize(400,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -58,19 +62,23 @@ public class StatisticsScreen extends JFrame{
     }
 
     private void initializeComponents() {
-        newExpensesLabel = new JLabel("New Expenses: ");
+        newExpensesLabel = new JLabel("New Expense: ");
         expensesTextField = new JTextArea();
-        setExpenseButton = new JButton("Set Expenses");
+        setExpenseButton = new JButton("Add Expense");
         backButton = new JButton("Back");
 
-        expensesLabel = new JLabel("Expenses: ");
+        expensesLabel = new JLabel("Extra Expenses: ");
         totalDailyIncomeLabel = new JLabel("Total Daily Rent Income: ");
         totalOperationsIncomeLabel = new JLabel("Total Operations Income: ");
+        totalDailyExpenseLabel = new JLabel("Total Daily Rent Expense: ");
+        totalOperationsExpenseLabel = new JLabel("Total Operations Expense: ");
         totalProfitLabel = new JLabel("Total Profit: ");
 
         expenses = new JLabel("0");
         totalDailyIncome = new JLabel("0");
         totalOperationsIncome = new JLabel("0");
+        totalDailyExpense = new JLabel("0");
+        totalOperationsExpense = new JLabel("0");
         totalProfit = new JLabel("0");
 
     }
@@ -84,16 +92,20 @@ public class StatisticsScreen extends JFrame{
         expensesLabel.setBounds(20, 80, 160, 25);
         totalDailyIncomeLabel.setBounds(20, 110, 160, 25);
         totalOperationsIncomeLabel.setBounds(20, 140, 160, 25);
-        totalProfitLabel.setBounds(20, 190, 160, 25);
+        totalDailyExpenseLabel.setBounds(20, 170, 160, 25);
+        totalOperationsExpenseLabel.setBounds(20, 200, 160, 25);
+        totalProfitLabel.setBounds(20, 250, 160, 25);
 
 
         expenses.setBounds(200, 80, 160, 25);
         totalDailyIncome.setBounds(200, 110, 160, 25);
         totalOperationsIncome.setBounds(200, 140, 160, 25);
-        totalProfit.setBounds(200, 190, 160, 25);
+        totalDailyExpense.setBounds(200, 170, 160, 25);
+        totalOperationsExpense.setBounds(200, 200, 160, 25);
+        totalProfit.setBounds(200, 250, 160, 25);
 
 
-        backButton.setBounds(20,250,110,25);
+        backButton.setBounds(20,325,110,25);
     }
 
     private void addComponents() {
@@ -105,11 +117,15 @@ public class StatisticsScreen extends JFrame{
         panel.add(expensesLabel);
         panel.add(totalDailyIncomeLabel);
         panel.add(totalOperationsIncomeLabel);
+        panel.add(totalDailyExpenseLabel);
+        panel.add(totalOperationsExpenseLabel);
         panel.add(totalProfitLabel);
 
         panel.add(expenses);
         panel.add(totalDailyIncome);
         panel.add(totalOperationsIncome);
+        panel.add(totalDailyExpense);
+        panel.add(totalOperationsExpense);
         panel.add(totalProfit);
 
 //        addKeyListener();
@@ -127,12 +143,24 @@ public class StatisticsScreen extends JFrame{
         totalOperationsIncome.setText(Double.toString(price));
     }
 
+    public void setTotalDailyExpense(double expense) {
+        totalDailyExpense.setText(Double.toString(expense));
+    }
+
+    public void setTotalOperationsExpense(double expense) {
+        totalOperationsExpense.setText(Double.toString(expense));
+    }
+
     public void setTotalProfit(double price) {
         totalProfit.setText(Double.toString(price));
     }
 
     public JTextArea getExpensesTextField() {
         return expensesTextField;
+    }
+
+    public void setExpensesTextField(String expenses) {
+        expensesTextField.setText(expenses);
     }
 
     public void addSetExpenseButtonListener(ActionListener actionListener) {

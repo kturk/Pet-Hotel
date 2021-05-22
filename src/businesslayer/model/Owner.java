@@ -70,8 +70,24 @@ public class Owner extends User{
     public Double getTotalOperationsPrice() {
         Double totalOperationsPrice = 0.0;
         for(Pet pet : petList){
-            totalOperationsPrice += pet.getCompletedCost();
+            totalOperationsPrice += pet.getCompletedOperationCost();
         }
         return totalOperationsPrice;
+    }
+
+    public Double getTotalOperationsExpense() {
+        Double totalOperationsExpense = 0.0;
+        for(Pet pet : petList){
+            totalOperationsExpense += pet.getCompletedOperationExpense();
+        }
+        return totalOperationsExpense;
+    }
+
+    public Double getTotalDailyRentingExpense() {
+        Double totalDailyRentingExpense = 0.0;
+        for(Pet pet : petList){
+            totalDailyRentingExpense += pet.getTotalRentExpense();
+        }
+        return totalDailyRentingExpense;
     }
 }

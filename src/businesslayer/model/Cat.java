@@ -3,13 +3,18 @@ package businesslayer.model;
 public class Cat extends Pet{
 
     private final static double PRICEFORDAY = 30;
+    private final static double EXPENSEFORDAY = 8;
+
+    public Cat() {
+        super();
+    }
 
     public Cat(String name, int age, int numOfDays) {
         super(name, age, numOfDays);
     }
 
     @Override
-    public double getCompletedCost() {
+    public double getCompletedOperationCost() {
         double completedCost = 0;
 
         for(OperationType o : getCompletedOperations()){
@@ -19,8 +24,8 @@ public class Cat extends Pet{
     }
 
     @Override
-    public double getEstimatedCost() {
-        double estimatedCost = getCompletedCost();
+    public double getEstimatedOperationCost() {
+        double estimatedCost = getCompletedOperationCost();
 
         for(OperationType o : getTodoOperations()){
             estimatedCost += o.getPriceForCat();
@@ -30,8 +35,23 @@ public class Cat extends Pet{
     }
 
     @Override
+    public double getCompletedOperationExpense() {
+        double completedExpense = 0;
+
+        for(OperationType o : getCompletedOperations()){
+            completedExpense += o.getExpenseForCat();
+        }
+        return completedExpense;
+    }
+
+    @Override
     public double getTotalRentCost() {
         return PRICEFORDAY * getNumOfDays();
+    }
+
+    @Override
+    public double getTotalRentExpense() {
+        return EXPENSEFORDAY * getNumOfDays();
     }
 
     @Override
