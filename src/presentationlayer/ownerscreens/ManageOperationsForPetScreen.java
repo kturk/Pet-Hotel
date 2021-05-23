@@ -86,7 +86,7 @@ public class ManageOperationsForPetScreen extends JFrame{
         completedOperationsLabel = new JLabel("Completed Operations");
 
         estimatedPriceLabel = new JLabel("Estimated Price");
-        completedPriceLabel = new JLabel("Completed Price");
+        completedPriceLabel = new JLabel("Current Price");
 
         estimatedPrice = new JLabel("0");
         completedPrice = new JLabel("0");

@@ -18,7 +18,7 @@ public class Mediator {
     private final IDataHandler dataHandler;
 
     public Mediator() {
-        this.dataHandler = new DataHandler("testXML.xml");
+        this.dataHandler = new DataHandler("PetHotel.xml");
         this.readXML();
     }
 

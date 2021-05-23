@@ -61,7 +61,7 @@ public class StatisticsScreen extends JFrame{
     }
 
     private void initializeComponents() {
-        newExpensesLabel = new JLabel("New Expense: ");
+        newExpensesLabel = new JLabel("Extra Expense: ");
         expensesTextField = new JTextArea();
         setExpenseButton = new JButton("Add Expense");
         backButton = new JButton("Back");
@@ -83,17 +83,17 @@ public class StatisticsScreen extends JFrame{
 
     private void locateComponents() {
         newExpensesLabel.setBounds(20, 20, 90, 25);
-        expensesTextField.setBounds(120, 20, 50, 25);
-        setExpenseButton.setBounds(200,20,130,25);
+        expensesTextField.setBounds(140, 20, 50, 25);
+        setExpenseButton.setBounds(220,20,130,25);
 
-        expensesLabel.setBounds(20, 80, 160, 25);
+        expensesLabel.setBounds(20, 65, 160, 25);
         totalDailyIncomeLabel.setBounds(20, 110, 160, 25);
         totalOperationsIncomeLabel.setBounds(20, 140, 160, 25);
         totalDailyExpenseLabel.setBounds(20, 170, 160, 25);
         totalOperationsExpenseLabel.setBounds(20, 200, 160, 25);
         totalProfitLabel.setBounds(20, 250, 160, 25);
 
-        expenses.setBounds(200, 80, 160, 25);
+        expenses.setBounds(200, 65, 160, 25);
         totalDailyIncome.setBounds(200, 110, 160, 25);
         totalOperationsIncome.setBounds(200, 140, 160, 25);
         totalDailyExpense.setBounds(200, 170, 160, 25);

@@ -50,7 +50,7 @@ public class HotelAdminMainScreen extends JFrame{
     private void initializeComponents() {
         userLabel = new JLabel("User: ");
 
-        seeAllPetsButton = new JButton("All Pets");
+        seeAllPetsButton = new JButton("See All Pets");
         statisticsButton = new JButton("Statistics");
         messagesButton = new JButton("Messages");
         logoutButton = new JButton("Logout");
