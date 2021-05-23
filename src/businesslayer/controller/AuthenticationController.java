@@ -1,8 +1,8 @@
 package businesslayer.controller;
 
 import businesslayer.Mediator;
-import businesslayer.OwnerCreator;
-import businesslayer.UserCreator;
+import businesslayer.creator.OwnerCreator;
+import businesslayer.creator.UserCreator;
 import businesslayer.model.HotelAdmin;
 import businesslayer.model.Owner;
 import presentationlayer.LoginChoiceScreen;
@@ -25,10 +25,14 @@ public class AuthenticationController {
 
     private String userType;
 
-    private UserCreator ownerCreator;
+    private final UserCreator ownerCreator;
 
     public AuthenticationController(
-            HotelAdmin hotelAdmin, LoginScreen loginView, LoginChoiceScreen loginChoiceView, RegisterScreen registerView, Mediator mediator)
+            HotelAdmin hotelAdmin,
+            LoginScreen loginView,
+            LoginChoiceScreen loginChoiceView,
+            RegisterScreen registerView,
+            Mediator mediator)
     {
         this.hotelAdmin = hotelAdmin;
         this.loginView = loginView;

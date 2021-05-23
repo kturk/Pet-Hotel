@@ -1,10 +1,7 @@
 package dataaccesslayer;
 
-import businesslayer.*;
+import businesslayer.creator.*;
 import businesslayer.model.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DataInitializer implements IDataInitializer {
 

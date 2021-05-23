@@ -1,4 +1,4 @@
-package businesslayer;
+package businesslayer.creator;
 
 import businesslayer.model.HotelAdmin;
 import businesslayer.model.User;

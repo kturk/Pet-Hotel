@@ -1,11 +1,9 @@
 package businesslayer.controller.ownercontrollers;
 
-import businesslayer.CatCreator;
-import businesslayer.DogCreator;
+import businesslayer.creator.CatCreator;
+import businesslayer.creator.DogCreator;
 import businesslayer.Mediator;
-import businesslayer.PetCreator;
-import businesslayer.model.Cat;
-import businesslayer.model.Dog;
+import businesslayer.creator.PetCreator;
 import businesslayer.model.Owner;
 import businesslayer.model.Pet;
 import presentationlayer.ownerscreens.NewPetScreen;
