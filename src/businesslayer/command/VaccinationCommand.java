@@ -4,7 +4,7 @@ import businesslayer.model.Pet;
 
 public class VaccinationCommand implements Command{
 
-    private Pet pet;
+    private final Pet pet;
 
     public VaccinationCommand(Pet pet) {
         this.pet = pet;
@@ -13,5 +13,10 @@ public class VaccinationCommand implements Command{
     @Override
     public void execute() {
         pet.vaccination();
+    }
+
+    @Override
+    public void undo() {
+        pet.undoVaccination();
     }
 }

@@ -2,24 +2,27 @@ package presentationlayer;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class LoginChoiceScreen extends JFrame{
 
-    private JLabel choiceLabel;
+    private JLabel loginLabel;
+    private JLabel registerLabel;
+
     private JButton adminButton;
     private JButton ownerButton;
+
+    private JButton registerButton;
 
     private JPanel loginPanel;
 
     public LoginChoiceScreen() {
-        super("Login Screen");
+        super("Login Choice Screen");
         screenInitializer();
     }
 
     private void screenInitializer() {
-        setSize(300,250);
+        setSize(400,250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -46,24 +49,32 @@ public class LoginChoiceScreen extends JFrame{
     }
 
     private void initializeComponents() {
-        choiceLabel = new JLabel("Which role you would like to login with?");
+        loginLabel = new JLabel("Login");
+        registerLabel = new JLabel("Register");
         adminButton = new JButton("Hotel Admin");
         ownerButton = new JButton("Pet Owner");
+        registerButton = new JButton("Register Owner");
     }
 
     private void locateComponents() {
-        choiceLabel.setBounds(0,20,300,25);
-        choiceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        loginLabel.setBounds(30,20,110,25);
+        loginLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        adminButton.setBounds(95, 70, 110, 25);
-        ownerButton.setBounds(95, 115, 110, 25);
+        registerLabel.setBounds(240, 20, 130,25);
+        registerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        adminButton.setBounds(30, 60, 110, 25);
+        ownerButton.setBounds(30, 105, 110, 25);
+        registerButton.setBounds(240,60,130,25);
 
     }
 
     private void addComponents() {
-        loginPanel.add(choiceLabel);
+        loginPanel.add(loginLabel);
+        loginPanel.add(registerLabel);
         loginPanel.add(ownerButton);
         loginPanel.add(adminButton);
+        loginPanel.add(registerButton);
     }
 
     public void addAdminButtonListener(ActionListener actionListener) {
@@ -72,6 +83,10 @@ public class LoginChoiceScreen extends JFrame{
 
     public void addOwnerButtonListener(ActionListener actionListener) {
         ownerButton.addActionListener(actionListener);
+    }
+
+    public void addRegisterButtonListener(ActionListener actionListener) {
+        registerButton.addActionListener(actionListener);
     }
 
 

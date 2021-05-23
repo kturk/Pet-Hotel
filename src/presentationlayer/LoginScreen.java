@@ -67,7 +67,6 @@ public class LoginScreen extends JFrame{
         passwordField.setBounds(120, 60, 150, 25);
         loginButton.setBounds(160, 100, 110, 25);
         backButton.setBounds(15, 180, 110, 25);
-
     }
 
     private void addComponents() {
@@ -89,6 +88,10 @@ public class LoginScreen extends JFrame{
         credentials.put("password", new String(passwordField.getPassword()));
 
         return(credentials);
+    }
+
+    public void setScreenTitle(String title) {
+        setTitle(title + " Login Screen");
     }
 
     public void addBackButtonListener(ActionListener actionListener) {

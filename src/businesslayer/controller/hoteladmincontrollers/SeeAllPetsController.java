@@ -3,29 +3,27 @@ package businesslayer.controller.hoteladmincontrollers;
 import businesslayer.Mediator;
 import businesslayer.model.HotelAdmin;
 import businesslayer.model.Pet;
-import businesslayer.model.User;
 import presentationlayer.hoteladminscreens.SeeAllPetsScreen;
-import presentationlayer.ownerscreens.SeeOwnerPetsScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SeeAllPetsController {
 
-    private final User hotelAdminModel;
     private final SeeAllPetsScreen seeAllPetsView;
 
     private final Mediator mediator;
 
-    public SeeAllPetsController(User hotelAdminModel, SeeAllPetsScreen seeAllPetsView, Mediator mediator) {
-        this.hotelAdminModel = hotelAdminModel;
+    public SeeAllPetsController(
+            HotelAdmin hotelAdminModel, SeeAllPetsScreen seeAllPetsView, Mediator mediator)
+    {
         this.seeAllPetsView = seeAllPetsView;
         this.mediator = mediator;
 
         seeAllPetsView.addSelectButtonListener(new SelectButtonListener());
         seeAllPetsView.addBackButtonListener(new BackButtonListener());
 
-        seeAllPetsView.setList(((HotelAdmin) hotelAdminModel).getAllPets().toArray());
+        seeAllPetsView.setList(hotelAdminModel.getAllPets().toArray());
 
     }
 
@@ -38,12 +36,15 @@ public class SeeAllPetsController {
     }
 
 
-
     class SelectButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Pet selectedPet = (Pet) seeAllPetsView.getPetList().getSelectedValue();
-            closeView();
-            mediator.navigateToMakeOperationsScreen(selectedPet);
+            if(selectedPet != null){
+                closeView();
+                mediator.navigateToMakeOperationsScreen(selectedPet);
+            }
+            else
+                seeAllPetsView.showError("Please select a pet from the list!");
         }
     }
 
@@ -53,6 +54,4 @@ public class SeeAllPetsController {
             mediator.navigateToHotelAdminMainScreen();
         }
     }
-
-
 }

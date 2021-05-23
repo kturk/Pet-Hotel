@@ -1,24 +1,47 @@
 package businesslayer.model;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pet {
+@XmlSeeAlso({Cat.class, Dog.class})
+public abstract class Pet {
 
-    private static int count = 1;
-    private int id;
+    private static Integer count = 1;
+    @XmlID
+    private String id;
     private String name;
     private int age;
+    private int numOfDays;
+
+    @XmlElementWrapper(name = "CompletedOperations")
+    @XmlElement(name = "CompletedOperation")
+//    @XmlTransient
     private List<OperationType> completedOperations;
+
+    @XmlElementWrapper(name = "ToDoOperations")
+    @XmlElement(name = "ToDoOperation")
+//    @XmlTransient
     private List<OperationType> todoOperations;
 
-    public Pet(String name, int age) {
-        this.id = count;
+    public Pet() {
+        this.id = count.toString();
+        count++;
+        this.name = "";
+        this.age = -1;
+        this.completedOperations = new ArrayList<OperationType>();
+        this.todoOperations = new ArrayList<OperationType>();
+        this.numOfDays = -1;
+    }
+
+    public Pet(String name, int age, int numOfDays) {
+        this.id = count.toString();
         count++;
         this.name = name;
         this.age = age;
         this.completedOperations = new ArrayList<OperationType>();
         this.todoOperations = new ArrayList<OperationType>();
+        this.numOfDays = numOfDays;
     }
 
     public String getName() {
@@ -35,6 +58,14 @@ public class Pet {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getNumOfDays() {
+        return numOfDays;
+    }
+
+    public void setNumOfDays(int numOfDays) {
+        this.numOfDays = numOfDays;
     }
 
     public void addTodoOperation(OperationType operationType) {
@@ -56,36 +87,66 @@ public class Pet {
     public void cutNails(){
         todoOperations.remove(OperationType.NAILS);
         completedOperations.add(OperationType.NAILS);
-        System.out.println("cutted");
     }
 
     public void bath(){
         todoOperations.remove(OperationType.BATH);
         completedOperations.add(OperationType.BATH);
-        System.out.println("Bath");
     }
 
     public void shave(){
         todoOperations.remove(OperationType.SHAVE);
         completedOperations.add(OperationType.SHAVE);
-        System.out.println("Shave");
     }
 
     public void dentalCare(){
         todoOperations.remove(OperationType.DENTAL_CARE);
         completedOperations.add(OperationType.DENTAL_CARE);
-        System.out.println("Dental Care");
     }
 
     public void vaccination(){
         todoOperations.remove(OperationType.VACCINATION);
         completedOperations.add(OperationType.VACCINATION);
-        System.out.println("Vaccination");
     }
+
+    public void undoCutNails(){
+        completedOperations.remove(OperationType.NAILS);
+        todoOperations.add(OperationType.NAILS);
+    }
+
+    public void undoBath(){
+        completedOperations.remove(OperationType.BATH);
+        todoOperations.add(OperationType.BATH);
+    }
+
+    public void undoShave(){
+        completedOperations.remove(OperationType.SHAVE);
+        todoOperations.add(OperationType.SHAVE);
+    }
+
+    public void undoDentalCare(){
+        completedOperations.remove(OperationType.DENTAL_CARE);
+        todoOperations.add(OperationType.DENTAL_CARE);
+    }
+
+    public void undoVaccination(){
+        completedOperations.remove(OperationType.VACCINATION);
+        todoOperations.add(OperationType.VACCINATION);
+    }
+
+    public abstract double getCompletedOperationCost();
+
+    public abstract double getEstimatedOperationCost();
+
+    public abstract double getCompletedOperationExpense();
+
+    public abstract double getTotalRentCost();
+
+    public abstract double getTotalRentExpense();
 
     @Override
     public String toString() {
-        return "Name = " + name + " -- " + "Age = " + age;
+        return "Name = " + name + "    " + "Age = " + age + "    " + "Days = " + numOfDays+ "    " + "Remaining Operations = " + todoOperations.size();
     }
 }
 

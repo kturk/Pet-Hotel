@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="all">
+    <archive path="C:/Users/Kemal/AppData/Roaming/JetBrains/IntelliJIdea2020.2/javascript/extLibs/http_use.fontawesome.com_releases_v5.4.1_css_all.css" />
+  </library>
+  <library name="bootstrap">
+    <archive path="C:/Users/Kemal/AppData/Roaming/JetBrains/IntelliJIdea2020.2/javascript/extLibs/http_cdn.jsdelivr.net_webjars_bootstrap_3.3.4_css_bootstrap.css" />
+    <archive path="C:/Users/Kemal/AppData/Roaming/JetBrains/IntelliJIdea2020.2/javascript/extLibs/http_maxcdn.bootstrapcdn.com_bootstrap_3.4.1_css_bootstrap.css" />
+    <archive path="C:/Users/Kemal/AppData/Roaming/JetBrains/IntelliJIdea2020.2/javascript/extLibs/http_maxcdn.bootstrapcdn.com_bootstrap_4.0.0_css_bootstrap.min.css" />
+    <archive path="C:/Users/Kemal/AppData/Roaming/JetBrains/IntelliJIdea2020.2/javascript/extLibs/http_stackpath.bootstrapcdn.com_bootstrap_4.5.0_js_bootstrap.js" />
+  </library>
+  <library name="jquery">
+    <archive path="C:/Users/Kemal/AppData/Roaming/JetBrains/IntelliJIdea2020.2/javascript/extLibs/http_cdn.jsdelivr.net_webjars_jquery_2.1.4_jquery.js" />
+  </library>
+  <library name="Python 3.6 interpreter library" />
+</eclipse-userlibraries>
+

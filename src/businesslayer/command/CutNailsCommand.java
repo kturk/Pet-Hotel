@@ -4,7 +4,7 @@ import businesslayer.model.Pet;
 
 public class CutNailsCommand implements Command{
 
-    private Pet pet;
+    private final Pet pet;
 
     public CutNailsCommand(Pet pet) {
         this.pet = pet;
@@ -13,5 +13,10 @@ public class CutNailsCommand implements Command{
     @Override
     public void execute() {
         pet.cutNails();
+    }
+
+    @Override
+    public void undo() {
+        pet.undoCutNails();
     }
 }

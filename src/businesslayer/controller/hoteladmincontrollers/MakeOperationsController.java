@@ -18,7 +18,9 @@ public class MakeOperationsController {
 
     private final CommandFactory commandFactory;
 
-    public MakeOperationsController(Pet petModel, MakeOperationsScreen makeOperationsView, Mediator mediator) {
+    public MakeOperationsController(
+            Pet petModel, MakeOperationsScreen makeOperationsView, Mediator mediator)
+    {
         this.petModel = petModel;
         this.makeOperationsView = makeOperationsView;
         this.mediator = mediator;
@@ -26,18 +28,15 @@ public class MakeOperationsController {
 
         makeOperationsView.addCompleteButtonListener(new CompleteButtonListener());
         makeOperationsView.addBackButtonListener(new BackButtonListener());
+        makeOperationsView.addUndoButtonListener(new UndoButtonListener());
 
         updateOperationsList();
-
-//        seeAllPetsView.setList(((HotelAdmin) hotelAdminModel).getAllPets().toArray());
-
     }
 
     private void updateOperationsList() {
         makeOperationsView.setTodoOperations(petModel.getTodoOperations().toArray());
         makeOperationsView.setCompletedOperations(petModel.getCompletedOperations().toArray());
     }
-
 
     public void showView() {
         makeOperationsView.showScreen();
@@ -48,13 +47,33 @@ public class MakeOperationsController {
     }
 
 
-
     class CompleteButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             OperationType selectedOperation = (OperationType) makeOperationsView.getTodoOperations().getSelectedValue();
-            Command command = commandFactory.getCommand(selectedOperation);
-            command.execute();
-            updateOperationsList();
+            if(selectedOperation != null){
+                Command command = commandFactory.getCommand(selectedOperation);
+                command.execute();
+                updateOperationsList();
+                mediator.writeXML();
+            }
+            else
+                makeOperationsView.showError("Please select an operation from waiting operations list!");
+
+        }
+    }
+
+    class UndoButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            OperationType selectedOperation = (OperationType) makeOperationsView.getCompletedOperations().getSelectedValue();
+            if(selectedOperation != null){
+                Command command = commandFactory.getCommand(selectedOperation);
+                command.undo();
+                updateOperationsList();
+                mediator.writeXML();
+            }
+            else
+                makeOperationsView.showError("Please select an operation from waiting operations list!");
+
         }
     }
 
@@ -64,6 +83,4 @@ public class MakeOperationsController {
             mediator.navigateToHotelAdminMainScreen();
         }
     }
-
-
 }

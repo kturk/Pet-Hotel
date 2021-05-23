@@ -1,10 +1,11 @@
 package businesslayer.controller.ownercontrollers;
 
+import businesslayer.creator.CatCreator;
+import businesslayer.creator.DogCreator;
 import businesslayer.Mediator;
-import businesslayer.model.Cat;
-import businesslayer.model.Dog;
+import businesslayer.creator.PetCreator;
 import businesslayer.model.Owner;
-import businesslayer.model.User;
+import businesslayer.model.Pet;
 import presentationlayer.ownerscreens.NewPetScreen;
 
 import java.awt.event.ActionEvent;
@@ -12,22 +13,27 @@ import java.awt.event.ActionListener;
 
 public class NewPetController {
 
-    private final User ownerModel;
-
+    private final Owner ownerModel;
     private final NewPetScreen newPetView;
-
     private final Mediator mediator;
 
-    public NewPetController(User ownerModel, NewPetScreen newPetView, Mediator mediator) {
+    private final PetCreator dogCreator;
+    private final PetCreator catCreator;
+
+    public NewPetController(
+            Owner ownerModel, NewPetScreen newPetView, Mediator mediator)
+    {
         this.ownerModel = ownerModel;
         this.newPetView = newPetView;
         this.mediator = mediator;
 
-        newPetView.addSubmitButtonListener(new SubmitButtonListener());
+        this.dogCreator = new DogCreator();
+        this.catCreator = new CatCreator();
+
+        newPetView.addSubmitButtonListener(new RegisterNewPetButtonListener());
         newPetView.addBackButtonListener(new BackButtonListener());
 
-        newPetView.setList(((Owner) ownerModel).getPetList().toArray());
-
+        newPetView.setList(ownerModel.getPetList().toArray());
     }
 
     public void showView() {
@@ -39,23 +45,34 @@ public class NewPetController {
     }
 
 
-
-    class SubmitButtonListener implements ActionListener {
+    class RegisterNewPetButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String petType = newPetView.getPetTypeDropdown().getSelectedItem().toString();
-            System.out.println(petType);
-            String petName = newPetView.getPetNameField().getText();
-            int petAge = Integer.parseInt(newPetView.getPetAgeField().getText());
-            if(petType.equals("Cat")){
-                Cat cat = new Cat(petName, petAge);
-                ((Owner) ownerModel).addNewPet(cat);
+            try{
+                if(!newPetView.checkEmptyFieldExist()){
+                    String petType = newPetView.getPetTypeDropdown().getSelectedItem().toString();
+                    String petName = newPetView.getPetNameField().getText();
+                    int petAge = Integer.parseInt(newPetView.getPetAgeField().getText());
+                    int numOfDays = Integer.parseInt(newPetView.getNumOfDaysField().getText());
+                    if(petType.equals("Cat")){
+                        Pet cat = catCreator.createPet(petName, petAge, numOfDays);
+                        ownerModel.addNewPet(cat);
 
+                    }
+                    else if(petType.equals("Dog")){
+                        Pet dog = dogCreator.createPet(petName, petAge, numOfDays);
+                        ownerModel.addNewPet(dog);
+                    }
+                    newPetView.setList(ownerModel.getPetList().toArray());
+                    mediator.writeXML();
+                }
+                else{
+                    newPetView.showError("Please enter all the fields!");
+                }
             }
-            else if(petType.equals("Dog")){
-                Dog dog = new Dog(petName, petAge);
-                ((Owner) ownerModel).addNewPet(dog);
+            catch (NumberFormatException exception){
+                newPetView.showError("Please enter a number for Pet Name and Pet Age!");
             }
-            newPetView.setList(((Owner) ownerModel).getPetList().toArray());
+
 
         }
     }
@@ -66,6 +83,4 @@ public class NewPetController {
             mediator.navigateToOwnerMainScreen();
         }
     }
-
-
 }

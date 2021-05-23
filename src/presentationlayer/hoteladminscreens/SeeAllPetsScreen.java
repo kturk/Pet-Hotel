@@ -12,13 +12,12 @@ public class SeeAllPetsScreen extends JFrame{
 
     private JLabel petsLabel;
     private JList petList;
-    JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
 
     public SeeAllPetsScreen() {
         super("All Pets");
         screenInitializer();
-
     }
 
     private void screenInitializer() {
@@ -80,6 +79,10 @@ public class SeeAllPetsScreen extends JFrame{
 
     public void addSelectButtonListener(ActionListener actionListener) {
         selectButton.addActionListener(actionListener);
+    }
+
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
     }
 
     public JList getPetList() {

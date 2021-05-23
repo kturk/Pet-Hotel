@@ -4,7 +4,7 @@ import businesslayer.model.Pet;
 
 public class ShaveCommand implements Command{
 
-    private Pet pet;
+    private final Pet pet;
 
     public ShaveCommand(Pet pet) {
         this.pet = pet;
@@ -13,5 +13,10 @@ public class ShaveCommand implements Command{
     @Override
     public void execute() {
         pet.shave();
+    }
+
+    @Override
+    public void undo() {
+        pet.undoShave();
     }
 }

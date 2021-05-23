@@ -21,11 +21,17 @@ public class ManageOperationsForPetScreen extends JFrame{
 
     private JLabel todoOperationsLabel;
     private JList todoOperations;
-    JScrollPane todoScrollPane;
+    private JScrollPane todoScrollPane;
 
     private JLabel completedOperationsLabel;
     private JList completedOperations;
-    JScrollPane completedScrollPane;
+    private JScrollPane completedScrollPane;
+
+    private JLabel estimatedPriceLabel;
+    private JLabel completedPriceLabel;
+
+    private JLabel estimatedPrice;
+    private JLabel completedPrice;
 
 
     public ManageOperationsForPetScreen() {
@@ -78,6 +84,12 @@ public class ManageOperationsForPetScreen extends JFrame{
         completedOperations = new JList();
         completedScrollPane = new JScrollPane();
         completedOperationsLabel = new JLabel("Completed Operations");
+
+        estimatedPriceLabel = new JLabel("Estimated Price");
+        completedPriceLabel = new JLabel("Current Price");
+
+        estimatedPrice = new JLabel("0");
+        completedPrice = new JLabel("0");
     }
 
     private void locateComponents() {
@@ -92,14 +104,25 @@ public class ManageOperationsForPetScreen extends JFrame{
         todoOperationsLabel.setHorizontalAlignment(SwingConstants.CENTER);
         todoScrollPane.setBounds(30,130, 540,150);
 
+        estimatedPriceLabel.setBounds(30,290, 185,25);
+        estimatedPriceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        estimatedPrice.setBounds(30,310, 185,25);
+        estimatedPrice.setHorizontalAlignment(SwingConstants.CENTER);
+
         deleteOperationButton.setBounds(245, 300, 110, 25);
+
+        completedPriceLabel.setBounds(385,290, 185,25);
+        completedPriceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        completedPrice.setBounds(385,310, 185,25);
+        completedPrice.setHorizontalAlignment(SwingConstants.CENTER);
 
         completedOperationsLabel.setBounds(0, 340, 600, 25);
         completedOperationsLabel.setHorizontalAlignment(SwingConstants.CENTER);
         completedScrollPane.setBounds(30,370, 540,150);
 
-        backButton.setBounds(20,530,110,25);
-
+        backButton.setBounds(30,530,110,25);
     }
 
     private void addComponents() {
@@ -120,11 +143,11 @@ public class ManageOperationsForPetScreen extends JFrame{
         panel.add(completedScrollPane);
         panel.add(completedOperationsLabel);
 
-
-
-//        addKeyListener();
+        panel.add(estimatedPriceLabel);
+        panel.add(estimatedPrice);
+        panel.add(completedPriceLabel);
+        panel.add(completedPrice);
     }
-
 
     public JComboBox<OperationType> getPetTypeDropdown() {
         return operationTypeDropDown;
@@ -152,6 +175,10 @@ public class ManageOperationsForPetScreen extends JFrame{
         }
     }
 
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
     public void deleteAllOperationTypes() {
         operationTypeDropDown.removeAllItems();
     }
@@ -162,6 +189,14 @@ public class ManageOperationsForPetScreen extends JFrame{
 
     public void addDeleteOperationButtonListener(ActionListener actionListener) {
         deleteOperationButton.addActionListener(actionListener);
+    }
+
+    public void setEstimatedPrice(double price){
+        estimatedPrice.setText(Double.toString(price));
+    }
+
+    public void setCompletedPrice(double price){
+        completedPrice.setText(Double.toString(price));
     }
 
     public void addBackButtonListener(ActionListener actionListener) {
@@ -175,6 +210,5 @@ public class ManageOperationsForPetScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
 }
 

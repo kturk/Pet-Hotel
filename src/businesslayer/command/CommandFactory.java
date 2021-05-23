@@ -3,14 +3,15 @@ package businesslayer.command;
 import businesslayer.model.OperationType;
 import businesslayer.model.Pet;
 
-public class CommandFactory {
+public class CommandFactory implements ICommandFactory {
 
-    Pet pet;
+    private Pet pet;
 
     public CommandFactory(Pet pet) {
         this.pet = pet;
     }
 
+    @Override
     public Command getCommand(OperationType operationType){
         switch (operationType) {
 

@@ -1,10 +1,7 @@
 package presentationlayer.ownerscreens;
 
 import javax.swing.*;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
-import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class OwnerMessagesScreen extends JFrame{
@@ -12,16 +9,12 @@ public class OwnerMessagesScreen extends JFrame{
     private JPanel panel;
 
     private JTextPane chatScreen;
-    JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
     private JTextField newMessageField;
 
     private JButton sendButton;
     private JButton backButton;
-
-//    private JLabel userPetsLabel;
-//    private JList petList;
-
 
 
     public OwnerMessagesScreen() {
@@ -65,8 +58,6 @@ public class OwnerMessagesScreen extends JFrame{
 
         sendButton = new JButton("Send");
         backButton = new JButton("Back");
-
-//        userPetsLabel = new JLabel("My Pets");
     }
 
     private void locateComponents() {
@@ -87,12 +78,16 @@ public class OwnerMessagesScreen extends JFrame{
         panel.add(backButton);
     }
 
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+
     public JTextField getNewMessageField() {
         return newMessageField;
     }
 
-    public void setNewMessageField(String newMessage) {
-        this.newMessageField.setText(newMessage);
+    public void clearNewMessageField() {
+        this.newMessageField.setText("");
     }
 
     public void setChatScreenDocument(StyledDocument doc){
@@ -114,7 +109,5 @@ public class OwnerMessagesScreen extends JFrame{
     public void showScreen(){
         setVisible(true);
     }
-
-
 }
 

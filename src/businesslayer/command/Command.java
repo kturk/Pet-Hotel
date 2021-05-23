@@ -2,5 +2,8 @@ package businesslayer.command;
 
 public interface Command {
 
-    public void execute();
+    void execute();
+
+    void undo(); // This command is for miss clicking in the UI while execute.
+
 }
