@@ -42,7 +42,10 @@
                 </Pet>
                 <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
                     <id>6</id>
-                    <CompletedOperations/>
+                    <CompletedOperations>
+                        <CompletedOperation>VACCINATION</CompletedOperation>
+                        <CompletedOperation>BATH</CompletedOperation>
+                    </CompletedOperations>
                     <ToDoOperations/>
                     <age>33</age>
                     <name>a</name>
@@ -82,14 +85,6 @@
                         <ToDoOperation>DENTAL_CARE</ToDoOperation>
                         <ToDoOperation>SHAVE</ToDoOperation>
                     </ToDoOperations>
-                    <age>2</age>
-                    <name>a</name>
-                    <numOfDays>2</numOfDays>
-                </Pet>
-                <Pet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cat">
-                    <id>11</id>
-                    <CompletedOperations/>
-                    <ToDoOperations/>
                     <age>2</age>
                     <name>a</name>
                     <numOfDays>2</numOfDays>

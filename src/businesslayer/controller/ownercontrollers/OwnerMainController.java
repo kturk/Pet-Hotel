@@ -59,6 +59,7 @@ public class OwnerMainController {
     class OwnerLogoutListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
+            mediator.setLoggedUser(null);
             mediator.navigateToLoginChoiceScreen();
         }
     }

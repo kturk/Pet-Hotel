@@ -41,7 +41,7 @@ public class AuthenticationController {
         this.mediator = mediator;
         this.ownerCreator = new OwnerCreator();
 
-        loginView.addButtonListener(new LoginListener());
+        loginView.addButtonListener(new LoginButtonListener());
         loginView.addBackButtonListener(new LoginBackButtonListener());
 
         loginChoiceView.addOwnerButtonListener(new OwnerButtonListener());
@@ -122,7 +122,7 @@ public class AuthenticationController {
         return false;
     }
 
-    class LoginListener implements ActionListener {
+    class LoginButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Map<String, String> credentials = loginView.getCredentials();
 

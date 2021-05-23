@@ -86,8 +86,8 @@ public class OwnerMessagesScreen extends JFrame{
         return newMessageField;
     }
 
-    public void setNewMessageField(String newMessage) {
-        this.newMessageField.setText(newMessage);
+    public void clearNewMessageField() {
+        this.newMessageField.setText("");
     }
 
     public void setChatScreenDocument(StyledDocument doc){

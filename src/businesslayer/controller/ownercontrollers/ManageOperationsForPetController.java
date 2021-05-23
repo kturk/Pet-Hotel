@@ -30,6 +30,7 @@ public class ManageOperationsForPetController {
 
         this.manageOperationsForPetView.setPetName(petModel.getName());
 
+        setPrices();
         updateOperationTypeList();
         setTodoOperationsList();
         setDoneOperationsList();
@@ -49,9 +50,6 @@ public class ManageOperationsForPetController {
 
         modifiedOperationTypes.removeAll(selectedOperationTypes);
 
-        setCompletedPrice();
-        setEstimatedPrice();
-
         this.manageOperationsForPetView.setOperationTypeDropDownList(modifiedOperationTypes);
     }
 
@@ -63,12 +61,10 @@ public class ManageOperationsForPetController {
         manageOperationsForPetView.setCompletedList(petModel.getCompletedOperations().toArray());
     }
 
-    private void setCompletedPrice() {
+    private void setPrices(){
         manageOperationsForPetView.setCompletedPrice(petModel.getCompletedOperationCost());
-    }
-
-    private void setEstimatedPrice() {
         manageOperationsForPetView.setEstimatedPrice(petModel.getEstimatedOperationCost());
+
     }
 
     public void showView() {
@@ -89,7 +85,7 @@ public class ManageOperationsForPetController {
                 petModel.addTodoOperation(selectedOperation);
                 setTodoOperationsList();
                 updateOperationTypeList();
-                setEstimatedPrice();
+                setPrices();
                 mediator.writeXML();
             }
             else
@@ -107,7 +103,7 @@ public class ManageOperationsForPetController {
                 petModel.removeTodoOperation(selectedOperation);
                 setTodoOperationsList();
                 updateOperationTypeList();
-                setEstimatedPrice();
+                setPrices();
                 mediator.writeXML();
             }
             else

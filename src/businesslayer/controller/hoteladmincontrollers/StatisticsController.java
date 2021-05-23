@@ -59,7 +59,7 @@ public class StatisticsController {
                 Double expense = Double.parseDouble(newExpense);
                 hotelAdminModel.addExtraExpense(expense);
                 setPrices();
-                statisticsView.setExpensesTextField("");
+                statisticsView.clearExpensesTextField();
             }
             catch (NumberFormatException exception){
                 statisticsView.showError("Please enter a number!");

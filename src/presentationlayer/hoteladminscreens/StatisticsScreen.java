@@ -152,8 +152,8 @@ public class StatisticsScreen extends JFrame{
         return expensesTextField;
     }
 
-    public void setExpensesTextField(String expenses) {
-        expensesTextField.setText(expenses);
+    public void clearExpensesTextField() {
+        expensesTextField.setText("");
     }
 
     public void addSetExpenseButtonListener(ActionListener actionListener) {

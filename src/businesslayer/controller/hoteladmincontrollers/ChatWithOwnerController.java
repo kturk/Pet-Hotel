@@ -83,11 +83,11 @@ public class ChatWithOwnerController {
 
     class SendButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String newMessage = "\n" + chatWithOwnerView.getNewMessageField().getText();  // TODO
+            String newMessage = "\n" + chatWithOwnerView.getNewMessageField().getText();
             if(newMessage.length() > 1){
                 ownerModel.addNewMessage(new ChatMessage("HotelAdmin", newMessage));
                 chatWithOwnerView.setChatScreenDocument(getChatMessagesAsDocument());
-                chatWithOwnerView.setNewMessageField("");
+                chatWithOwnerView.clearNewMessageField();
                 mediator.writeXML();
             }
             else

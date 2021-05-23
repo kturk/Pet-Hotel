@@ -20,10 +20,10 @@ public class HotelAdminMainController {
 
         adminMainView.renderUsername(hotelAdminModel.getUserName().toUpperCase());
 
-        hotelAdminMainScreen.addSeeAllPetsButtonListener(new AdminSeeAllPetsListener());
-        hotelAdminMainScreen.addStatisticsButtonListener(new StatisticsListener());
-        hotelAdminMainScreen.addMessagesButtonListener(new AdminMessagesListener());
-        hotelAdminMainScreen.addLogoutButtonListener(new AdminLogoutListener());
+        hotelAdminMainScreen.addSeeAllPetsButtonListener(new AdminSeeAllPetsButtonListener());
+        hotelAdminMainScreen.addStatisticsButtonListener(new StatisticsButtonListener());
+        hotelAdminMainScreen.addMessagesButtonListener(new AdminMessagesButtonListener());
+        hotelAdminMainScreen.addLogoutButtonListener(new AdminLogoutButtonListener());
     }
 
     public void showView() {
@@ -35,28 +35,28 @@ public class HotelAdminMainController {
     }
 
 
-    class AdminSeeAllPetsListener implements ActionListener {
+    class AdminSeeAllPetsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
             mediator.navigateToSeeAllPetsScreen();
         }
     }
 
-    class StatisticsListener implements ActionListener {
+    class StatisticsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
             mediator.navigateToStatisticsScreen();
         }
     }
 
-    class AdminMessagesListener implements ActionListener {
+    class AdminMessagesButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
             mediator.navigateToAdminMessagesScreen();
         }
     }
 
-    class AdminLogoutListener implements ActionListener {
+    class AdminLogoutButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             closeView();
             mediator.navigateToLoginChoiceScreen();

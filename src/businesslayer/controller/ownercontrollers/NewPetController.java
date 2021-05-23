@@ -30,7 +30,7 @@ public class NewPetController {
         this.dogCreator = new DogCreator();
         this.catCreator = new CatCreator();
 
-        newPetView.addSubmitButtonListener(new SubmitButtonListener());
+        newPetView.addSubmitButtonListener(new RegisterNewPetButtonListener());
         newPetView.addBackButtonListener(new BackButtonListener());
 
         newPetView.setList(ownerModel.getPetList().toArray());
@@ -45,7 +45,7 @@ public class NewPetController {
     }
 
 
-    class SubmitButtonListener implements ActionListener {
+    class RegisterNewPetButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             try{
                 if(!newPetView.checkEmptyFieldExist()){
